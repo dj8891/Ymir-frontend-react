@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <title>Ymir client</title>
+  </head>
+  <body>
+    <iframe
+      src="http://localhost:10001?appId=328787328732872387323287823723782387"
+      width="500"
+      height="300"
+      frameborder="1"
+    ></iframe>
+
+    <script>
+      window.myAppConfig = {
+        appId: "Test_8777823",
+      };
+      function createWidgetDiv() {
+        const div = document.createElement("div");
+        div.className = "ymir-widget";
+        document.body.appendChild(div);
+      }
+      function loadScript(src) {
+        const script = document.createElement("script");
+        script.src = src;
+        document.body.appendChild(script);
+      }
+      createWidgetDiv();
+      loadScript("http://localhost:10001/index.bundle.js");
+    </script>
+  </body>
+</html>

@@ -1,19 +1,22 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
+import "./index.css";
+import reportWebVitals from "./reportWebVitals";
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+// The issue with using a common id like “root” for injecting widgets, as it may clash with other elements with the same id,
+//  and emphasizes using class identifiers and data attributes to dynamically inject multiple instances of a widget into divs,
+//  allowing for more flexibility and control over parameters.
+const widgetDivs: NodeListOf<HTMLDivElement> =
+  document.querySelectorAll(".ymir-widget");
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+widgetDivs.forEach((div: HTMLDivElement) => {
+  ReactDOM.render(
+    <React.StrictMode>
+      <App symbol={div.dataset.symbol ?? ""} />
+    </React.StrictMode>,
+    div
+  );
+});
+
 reportWebVitals();
