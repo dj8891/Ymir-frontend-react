@@ -1,0 +1,11 @@
+.bottom-layout {
+  border-top: 2px solid #909090;
+  min-height: 10vh;
+  background-color: white;
+  padding: 0px 20px 0px 20px;
+}
+
+.button-group {
+  box-shadow: none;
+  border: none;
+}

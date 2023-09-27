@@ -1,7 +1,9 @@
+import { Grid } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import "./App.css";
-import logo from "./logo.svg";
-
+import BottomLayout from "./layout/bottom";
+import MainLayout from "./layout/main";
+import TopLayout from "./layout/top";
 interface AppProps {
   symbol: string;
 }
@@ -18,14 +20,27 @@ const App: React.FC<AppProps> = ({ symbol }) => {
     if (appId) setAppId(appId);
   }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          AppId: {appId} <br />
-        </p>
-      </header>
-    </div>
+    <>
+      <div
+        style={{ display: "flex", flexDirection: "column", height: "100vh" }}
+      >
+        <Grid container spacing={0}>
+          <Grid item xs={12}>
+            <TopLayout />
+          </Grid>
+        </Grid>
+        <Grid container spacing={2} style={{ flex: 1, overflow: "auto" }}>
+          <Grid item xs={12}>
+            <MainLayout />
+          </Grid>
+        </Grid>
+        <Grid container spacing={2}>
+          <Grid item xs={12}>
+            <BottomLayout />
+          </Grid>
+        </Grid>
+      </div>
+    </>
   );
 };
 
