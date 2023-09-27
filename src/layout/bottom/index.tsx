@@ -29,7 +29,7 @@ const BottomLayout: React.FC<BottomLayoutProps> = ({}) => {
             placeholder="Type a reply..."
             InputProps={{
               disableUnderline: true,
-              style: { fontSize: "1.4rem" },
+              style: { fontSize: "1.2rem" },
             }}
           />
         </Box>
