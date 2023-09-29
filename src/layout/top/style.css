@@ -1,5 +1,23 @@
 .top-layout {
   background-color: #c8c8c8;
-  min-height: 15vh;
+  min-height: 10vh;
   margin-top: 0;
+}
+
+.chat-name {
+  color: #454545;
+  font-size: 25px;
+  font-weight: bold;
+  white-space: wrap;
+  text-overflow: ellipsis;
+}
+
+.area-of-work {
+  color: #909090;
+  font-size: 14px;
+}
+
+.ymir-badge {
+  width: 30px;
+  margin: 0px 5px 0px 5px;
 }

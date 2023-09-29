@@ -1,4 +1,4 @@
-import { Grid } from "@material-ui/core";
+import { Box, Grid } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import "./App.css";
 import BottomLayout from "./layout/bottom";
@@ -21,7 +21,7 @@ const App: React.FC<AppProps> = ({ symbol }) => {
   }, []);
   return (
     <>
-      <div
+      <Box
         style={{ display: "flex", flexDirection: "column", height: "100vh" }}
       >
         <Grid container spacing={0}>
@@ -39,7 +39,7 @@ const App: React.FC<AppProps> = ({ symbol }) => {
             <BottomLayout />
           </Grid>
         </Grid>
-      </div>
+      </Box>
     </>
   );
 };

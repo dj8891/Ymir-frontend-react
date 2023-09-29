@@ -7,52 +7,55 @@ interface BottomLayoutProps {}
 
 const BottomLayout: React.FC<BottomLayoutProps> = ({}) => {
   return (
-    <Grid
-      container
+    <Box
       className="bottom-layout"
+      display="flex"
+      flexDirection="column"
       alignItems="center"
       justifyContent="center"
     >
-      <Grid item xs={false} lg={2}></Grid>
-      <Grid item xs={10} lg={8}>
-        <Box
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-          height="100%"
-          marginRight={2}
-        >
-          <TextField
-            variant="standard"
-            fullWidth
-            multiline
-            placeholder="Type a reply..."
-            InputProps={{
-              disableUnderline: true,
-              style: { fontSize: "1.2rem" },
-            }}
-          />
-        </Box>
-      </Grid>
-      <Grid item xs={2} lg={2} spacing={2}>
-        <Box
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-          height="100%"
-        >
-          <ButtonGroup
-            variant="outlined"
-            color="default"
-            aria-label="contained primary button group"
-            className="button-group"
+      <Grid container>
+        <Grid item xs={false} lg={2}></Grid>
+        <Grid item xs={10} lg={8}>
+          <Box
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+            height="100%"
+            marginRight={2}
           >
-            <EmojiButton />
-            <UploadButton />
-          </ButtonGroup>
-        </Box>
+            <TextField
+              variant="standard"
+              fullWidth
+              multiline
+              placeholder="Type a reply..."
+              InputProps={{
+                disableUnderline: true,
+                style: { fontSize: "1.2rem" },
+              }}
+            />
+          </Box>
+        </Grid>
+        <Grid item xs={2} lg={2} spacing={2}>
+          <Box
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+            height="100%"
+          >
+            <ButtonGroup
+              variant="outlined"
+              color="default"
+              aria-label="contained primary button group"
+              className="button-group"
+            >
+              <EmojiButton />
+              <UploadButton />
+            </ButtonGroup>
+          </Box>
+        </Grid>
       </Grid>
-    </Grid>
+    </Box>
   );
 };
 

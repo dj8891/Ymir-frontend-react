@@ -14,59 +14,82 @@ const TopLayout: React.FC<TopLayoutProps> = ({}) => {
       flexDirection="column"
       alignItems="center"
       justifyContent="center"
-      paddingLeft={5}
-      paddingRight={5}
+      padding={3}
+      sx={{ width: "100%" }}
     >
-      <Grid container spacing={0}>
-        <Grid item xs={false} lg={2}></Grid>
-        <Grid item xs={2}>
+      <Grid container spacing={0} justifyContent="center">
+        <Grid item xs={12} sm={8} md={6} lg={4}>
           <Box
-            className="top-layout"
             display="flex"
-            flexDirection="column"
-            alignItems="flex-start"
-            justifyContent="center"
-            sx={{
-              width: {
-                xs: "100%",
-                lg: "60%",
-              },
-            }}
-          >
-            <img src={avatar} alt="avatar Icon" width="100%" />
-          </Box>
-        </Grid>
-        <Grid item xs={10} lg={6}>
-          <Box
-            className="top-layout"
-            display="flex"
-            flexDirection="column"
+            flexDirection="row"
             alignItems="center"
-            justifyContent="center"
+            width="100%"
           >
-            <Grid container spacing={0}>
-              <Grid item xs={12}>
-                <Box display="flex" alignItems="center">
-                  <Typography variant="h6" style={{ marginRight: "10px" }}>
-                    Chat name
-                  </Typography>
-                  <img src={badge} alt="badge Icon" width={50} />
-                  <Typography style={{ marginLeft: "10px" }}>Bot</Typography>
+            <Box
+              display="flex"
+              flexDirection="column"
+              alignItems="flex-start"
+              justifyContent="center"
+              sx={{
+                width: {
+                  xs: "30%",
+                  lg: "20%",
+                },
+                paddingLeft: {
+                  xs: "2px",
+                  lg: "0px",
+                },
+              }}
+            >
+              <img src={avatar} alt="avatar Icon" width="90px" />
+            </Box>
+            <Box
+              display="flex"
+              flexDirection="column"
+              alignItems="flex-start"
+              justifyContent="center"
+              sx={{
+                width: {
+                  xs: "70%",
+                  lg: "80%",
+                },
+              }}
+            >
+              <Box display="flex" alignItems="center" marginRight={5}>
+                <span className="chat-name">Chat name</span>
+                <Box
+                  display="flex"
+                  sx={{
+                    display: {
+                      xs: "none",
+                      lg: "flex",
+                    },
+                  }}
+                  margin={0}
+                >
+                  <img src={badge} alt="badge Icon" className="ymir-badge" />
+                  <Typography>Bot</Typography>
                 </Box>
-              </Grid>
-            </Grid>
-
-            <Grid container spacing={0}>
-              <Grid item xs={6}>
-                <Typography>Area of work</Typography>
-              </Grid>
-              {/* <Grid item xs={6}>
-                <Typography>location</Typography>{" "}
-              </Grid> */}
-            </Grid>
+              </Box>
+              <Box display="flex">
+                <span className="area-of-work">Area of work</span>
+              </Box>
+              <Box
+                display="flex"
+                sx={{
+                  display: {
+                    xs: "flex",
+                    lg: "none",
+                  },
+                }}
+                margin={0}
+              >
+                <img src={badge} alt="badge Icon" className="ymir-badge" />
+                <Typography style={{ fontSize: "12px" }}>Bot</Typography>
+              </Box>
+            </Box>
           </Box>
         </Grid>
-        <Grid item xs={false} lg={2}></Grid>
       </Grid>
     </Box>
   );
