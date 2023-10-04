@@ -11,7 +11,7 @@ interface Message {
 
 const messages: Message[] = [
   {
-    text: "Hello! I hope you are having a great day. I wanted to talk to you about something important. Do you have some time to chat?",
+    text: "Hello! I hope you are having a great day. I wanted to talk to you about something important. Do you have some time to chat-interface?",
     user: "userA",
     avatar: "https://example.com/avatar1.png",
   },
