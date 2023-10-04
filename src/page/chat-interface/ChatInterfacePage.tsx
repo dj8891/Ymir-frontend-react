@@ -5,7 +5,7 @@ import BottomLayout from "./layout/bottom";
 import MainLayout from "./layout/main";
 import TopLayout from "./layout/top";
 
-const ChatInterface: React.FC = () => (
+const ChatInterfacePage: React.FC = () => (
       <Box
         style={{ display: "flex", flexDirection: "column", height: "100vh" }}
       >
@@ -27,4 +27,4 @@ const ChatInterface: React.FC = () => (
       </Box>
   );
 
-export default ChatInterface;
+export default ChatInterfacePage;

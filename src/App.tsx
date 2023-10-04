@@ -3,20 +3,22 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import ChatInterface from "./page/chat-interface/ChatInterface";
-
-interface AppProps {
-  symbol: string;
-}
+import ChatInterfacePage from "./page/chat-interface/ChatInterfacePage";
+import DashboardPage from "./page/dashboard/DashboardPage";
+import ErrorPage from "./page/error/ErrorPage";
 
 const router = createBrowserRouter([
   {
+    path: "/",
+    errorElement: <ErrorPage/>
+  },
+  {
     path: "/dashboard",
-    element: <div>Dashboard</div>,
+    element: <DashboardPage/>,
   },
   {
     path: "/chat-interface",
-    element: <ChatInterface/>,
+    element: <ChatInterfacePage/>,
   },
 ]);
 
