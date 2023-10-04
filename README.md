@@ -12,12 +12,12 @@ To get started with Ymir, follow the steps below:
 2. Install the dependencies:
 
    ```
-   npm install
+   yarn 
    ```
 
 3. Start the development server:
    ```
-   npm start
+   yarn start
    ```
 
 ## Getting Started with Rollup bundler
@@ -32,7 +32,7 @@ To get started with Rollup bundler, follow the steps below:
 2. Install the dependencies:
 
    ```
-   npm install
+   yarn 
    ```
 
 3. Start the Rollup dev server:
