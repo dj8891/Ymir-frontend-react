@@ -20,7 +20,7 @@ const router = createBrowserRouter([
   },
 ]);
 
-const App: React.FC<AppProps> = ({ symbol }) => {
+const App: React.FC = () => {
   return (
       <div className="ymir-app">
         <RouterProvider router={router}/>

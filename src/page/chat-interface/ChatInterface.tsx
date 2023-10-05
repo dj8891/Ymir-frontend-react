@@ -1,24 +1,11 @@
 import { Box, Grid } from "@material-ui/core";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./ChatInterface.css";
 import BottomLayout from "./layout/bottom";
 import MainLayout from "./layout/main";
 import TopLayout from "./layout/top";
 
-const ChatInterface: React.FC = () => {
-  const [appId, setAppId] = useState<string | null>(
-    // @ts-expect-error
-    window.myAppConfig && window.myAppConfig.appId
-  );
-
-  useEffect(() => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const appId = urlParams.get("appId");
-    if (appId) setAppId(appId);
-  }, []);
-
-  return (
-    <>
+const ChatInterface: React.FC = () => (
       <Box
         style={{ display: "flex", flexDirection: "column", height: "100vh" }}
       >
@@ -38,8 +25,6 @@ const ChatInterface: React.FC = () => {
           </Grid>
         </Grid>
       </Box>
-    </>
   );
-};
 
 export default ChatInterface;
