@@ -16,50 +16,105 @@ import {
 } from "react-router-dom";
 
 
-const DashboardNavbar: React.FC = styled(({ className }: any) => {
+interface DashboardNavbarProps {
+    className?: string,
+    activeNavItem: string,
+}
+
+const DashboardNavbar: React.FC<DashboardNavbarProps> = styled(({ activeNavItem, className }: DashboardNavbarProps) => {
+
+    const navItems = [
+        {
+            slug: 'dashboard',
+            title: 'Dashboard',
+            subRoutes: [
+                {
+                    url: 'dashboard/chats',
+                    title: 'Chats',
+                    icon: <ChatsIcon/>,
+                },
+                {
+                    url: 'dashboard/reports',
+                    title: 'Reports',
+                    icon: <ReportsIcon/>,
+                },
+            ]
+        },
+        {
+            slug: 'moderators',
+            title: 'Moderators',
+            subRoutes: [
+                {
+                    url: 'moderators/members',
+                    title: 'Members',
+                    icon: <ChatsIcon/>,
+                },
+                {
+                    url: 'moderators/manage-moderator',
+                    title: 'Manage Moderator',
+                    icon: <ReportsIcon/>,
+                },
+            ]
+        },
+        {
+            slug: 'database',
+            title: 'Database',
+            subRoutes: [
+                {
+                    url: 'database/database',
+                    title: 'Database',
+                    icon: <ChatsIcon/>,
+                },
+                {
+                    url: 'database/upload',
+                    title: 'Upload',
+                    icon: <ReportsIcon/>,
+                },
+            ]
+        },
+        {
+            slug: 'settings',
+            title: 'Settings',
+            subRoutes: [
+                {
+                    url: 'settings/help-center',
+                    title: 'Help Center',
+                    icon: <ChatsIcon/>,
+
+                },
+            ]
+        },
+    ];
+
+    const currentNavItem = navItems.find(navItem => navItem.slug === activeNavItem);
 
     return (
         <div id="sub-nav" className={className}>
 
-            <h5>Dashboard</h5>
+            <h5>{currentNavItem?.title}</h5>
 
             <ul className="sub-nav-items">
 
-                <li className="sub-nav-item">
+                    {currentNavItem?.subRoutes.map(subNavItem => {
 
-                    <NavLink
-                        to={`dashboard/chats`}
-                        className={({ isActive, isPending }) =>
-                            isActive
-                                ? "active"
-                                : isPending
-                                    ? "pending"
-                                    : ""
-                        }
-                    >
-                        <ChatsIcon/>
-                        <span>Chats</span>
-                    </NavLink>
-
-                </li>
-
-                <li className="sub-nav-item">
-
-                    <NavLink
-                        to={`dashboard/reports`}
-                        className={({ isActive, isPending }) =>
-                            isActive
-                                ? "active"
-                                : isPending
-                                    ? "pending"
-                                    : ""
-                        }
-                    >
-                        <ReportsIcon/>
-                        <span>Reports</span>
-                    </NavLink>
-
-                </li>
+                        return (
+                            <li className="sub-nav-item">
+                                <NavLink
+                                    to={subNavItem.url}
+                                    className={({ isActive, isPending }) =>
+                                        isActive
+                                            ? "active"
+                                            : isPending
+                                                ? "pending"
+                                                : ""
+                                    }
+                                >
+                                    {subNavItem.icon}
+                                    <span>{subNavItem.title}</span>
+                                </NavLink>
+                            </li>
+                        )
+                    })}
             </ul>
         </div>
     )
@@ -109,22 +164,23 @@ const DashboardNavbar: React.FC = styled(({ className }: any) => {
 
 
 const Navbar: React.FC = styled(({ className }: any) => {
+    const [activeNavItem, setActiveNavItem] = React.useState('dashboard');
     return (
         <div id="navbar" className={className}>
             <div className="left-nav">
                 <BotIcon className="bot-icon"/>
 
                 <ul className="nav-items">
-                    <li className="nav-item">
+                    <li className="nav-item" onClick={() => setActiveNavItem('dashboard')}>
                         <DashboardIcon/>
                     </li>
-                    <li className="nav-item">
+                    <li className="nav-item" onClick={() => setActiveNavItem('moderators')}>
                         <TeammatesIcon/>
                     </li>
-                    <li className="nav-item">
+                    <li className="nav-item" onClick={() => setActiveNavItem('database')}>
                         <DocumentUploadIcon/>
                     </li>
-                    <li className="nav-item">
+                    <li className="nav-item" onClick={() => setActiveNavItem('settings')}>
                         <SettingsIcon/>
                     </li>
                 </ul>
@@ -132,7 +188,7 @@ const Navbar: React.FC = styled(({ className }: any) => {
             </div>
 
             <div className="right-nav">
-                <DashboardNavbar/>
+                <DashboardNavbar activeNavItem={activeNavItem}/>
             </div>
 
         </div>
