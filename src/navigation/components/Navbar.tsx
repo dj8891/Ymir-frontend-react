@@ -5,6 +5,10 @@ import { ReactComponent as DashboardIcon } from '../assets/dashboard-icon.svg';
 import { ReactComponent as DocumentUploadIcon } from '../assets/document-upload-icon.svg';
 import { ReactComponent as SettingsIcon } from '../assets/settings-icon.svg';
 import { ReactComponent as TeammatesIcon } from '../assets/teammates-icon.svg';
+
+import { ReactComponent as ChatsIcon } from '../assets/chats-icon.svg';
+import { ReactComponent as ReportsIcon } from '../assets/reports-icon.svg';
+
 import Colors from "../../constants/colors";
 
 import {
@@ -50,10 +54,28 @@ const Navbar: React.FC = styled(({ className }: any) => {
                                         : ""
                             }
                         >
-                            L
+                            <ChatsIcon/>
                         </NavLink>
 
                     </li>
+
+                    <li className="sub-nav-item">
+
+                        <NavLink
+                            to={`dashboard/reports`}
+                            className={({ isActive, isPending }) =>
+                                isActive
+                                    ? "active"
+                                    : isPending
+                                        ? "pending"
+                                        : ""
+                            }
+                        >
+                            <ReportsIcon/>
+                        </NavLink>
+
+                    </li>
+
 
                 </ul>
 
