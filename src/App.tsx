@@ -4,17 +4,21 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import ChatInterfacePage from "./page/chat-interface/ChatInterfacePage";
-import DashboardPage from "./page/dashboard/DashboardPage";
+import MainPage from "./page/main/MainPage";
 import ErrorPage from "./page/error/ErrorPage";
+import NestedNavbar from "./page/main/components/NestedNavbar";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    errorElement: <ErrorPage/>
-  },
-  {
-    path: "/dashboard",
-    element: <DashboardPage/>,
+    element: <MainPage/>,
+    errorElement: <ErrorPage/>,
+    children: [
+      {
+        path: "dashboard/",
+        element: <NestedNavbar />,
+      },
+    ],
   },
   {
     path: "/chat-interface",

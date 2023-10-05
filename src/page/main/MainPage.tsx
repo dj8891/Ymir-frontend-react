@@ -1,11 +1,13 @@
 import React from "react";
 import styled from 'styled-components';
 import Navbar from "./components/Navbar";
+import { Outlet } from "react-router-dom";
 
-const DashboardPage: React.FC = styled(({ className }: any) => {
+const MainPage: React.FC = styled(({ className }: any) => {
     return (
-        <div id="dashboard" className={className}>
+        <div id="main-page" className={className}>
             <Navbar/>
+            <Outlet />
         </div>
     )
 })`
@@ -13,4 +15,4 @@ const DashboardPage: React.FC = styled(({ className }: any) => {
   width: 100%;
 `;
 
-export default DashboardPage;
+export default MainPage;
