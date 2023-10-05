@@ -22,61 +22,83 @@ const DashboardNavbar: React.FC = styled(({ className }: any) => {
         <div id="sub-nav" className={className}>
 
             <h5>Dashboard</h5>
-        <ul className="sub-nav-items">
 
-            <li className="sub-nav-item">
+            <ul className="sub-nav-items">
 
-                <NavLink
-                    to={`dashboard/chats`}
-                    className={({ isActive, isPending }) =>
-                        isActive
-                            ? "active"
-                            : isPending
-                                ? "pending"
-                                : ""
-                    }
-                >
-                    <ChatsIcon/>
-                    <span>Chats</span>
-                </NavLink>
+                <li className="sub-nav-item">
 
-            </li>
+                    <NavLink
+                        to={`dashboard/chats`}
+                        className={({ isActive, isPending }) =>
+                            isActive
+                                ? "active"
+                                : isPending
+                                    ? "pending"
+                                    : ""
+                        }
+                    >
+                        <ChatsIcon/>
+                        <span>Chats</span>
+                    </NavLink>
 
-            <li className="sub-nav-item">
+                </li>
 
-                <NavLink
-                    to={`dashboard/reports`}
-                    className={({ isActive, isPending }) =>
-                        isActive
-                            ? "active"
-                            : isPending
-                                ? "pending"
-                                : ""
-                    }
-                >
-                    <ReportsIcon/>
-                    <span>Reports</span>
-                </NavLink>
+                <li className="sub-nav-item">
 
-            </li>
-        </ul>
+                    <NavLink
+                        to={`dashboard/reports`}
+                        className={({ isActive, isPending }) =>
+                            isActive
+                                ? "active"
+                                : isPending
+                                    ? "pending"
+                                    : ""
+                        }
+                    >
+                        <ReportsIcon/>
+                        <span>Reports</span>
+                    </NavLink>
+
+                </li>
+            </ul>
         </div>
     )
 })`
-
+    h5 {
+      padding: 1.75rem 0.75rem;
+      margin: 0;
+    }
+  
     ul.sub-nav-items {
       list-style-type: none;
       margin: 0;
       padding: 0;
       
       li {
+        width: 86%;
+        margin-top: 0.5rem;
         
         a {
           color: ${Colors.black};
           text-decoration: none;
+          width: 100%;
+          display: inline-block;
+          border-radius: 0.25rem;
+          padding: 0.25rem;
+          margin-left: 0.25rem;
+          
+          svg {
+            vertical-align: middle;
+          }
+          
+          span {
+            padding-left: 0.5rem;
+            vertical-align: middle;
+          }
           
           &.active {
             color: ${Colors.activeBlue};
+            background-color: ${Colors.backgroundWhite};
           }
         }
       }
@@ -150,7 +172,7 @@ const Navbar: React.FC = styled(({ className }: any) => {
   
   .right-nav {
     height: 100%;
-    width: 7rem;
+    width: 8rem;
     display: inline-block;
     background-color: ${Colors.navbarDarkGrey};
   }

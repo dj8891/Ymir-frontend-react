@@ -19,7 +19,7 @@ const MainPage: React.FC = styled(({ className }: any) => {
   vertical-align: top;
   
   .main-content {
-    width: calc(100% - 10rem);
+    width: calc(100% - 11rem);
     height: 100%;
     background-color: ${Colors.backgroundWhite};
     display: inline-block;
