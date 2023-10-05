@@ -15,6 +15,77 @@ import {
     NavLink,
 } from "react-router-dom";
 
+
+const DashboardNavbar: React.FC = styled(({ className }: any) => {
+
+    return (
+        <div id="sub-nav" className={className}>
+
+            <h5>Dashboard</h5>
+        <ul className="sub-nav-items">
+
+            <li className="sub-nav-item">
+
+                <NavLink
+                    to={`dashboard/chats`}
+                    className={({ isActive, isPending }) =>
+                        isActive
+                            ? "active"
+                            : isPending
+                                ? "pending"
+                                : ""
+                    }
+                >
+                    <ChatsIcon/>
+                    <span>Chats</span>
+                </NavLink>
+
+            </li>
+
+            <li className="sub-nav-item">
+
+                <NavLink
+                    to={`dashboard/reports`}
+                    className={({ isActive, isPending }) =>
+                        isActive
+                            ? "active"
+                            : isPending
+                                ? "pending"
+                                : ""
+                    }
+                >
+                    <ReportsIcon/>
+                    <span>Reports</span>
+                </NavLink>
+
+            </li>
+        </ul>
+        </div>
+    )
+})`
+
+    ul.sub-nav-items {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      
+      li {
+        
+        a {
+          color: ${Colors.black};
+          text-decoration: none;
+          
+          &.active {
+            color: ${Colors.activeBlue};
+          }
+        }
+      }
+      
+    }
+  
+`;
+
+
 const Navbar: React.FC = styled(({ className }: any) => {
     return (
         <div id="navbar" className={className}>
@@ -39,46 +110,7 @@ const Navbar: React.FC = styled(({ className }: any) => {
             </div>
 
             <div className="right-nav">
-
-                <ul className="sub-nav-items">
-
-                    <li className="sub-nav-item">
-
-                        <NavLink
-                            to={`dashboard/chats`}
-                            className={({ isActive, isPending }) =>
-                                isActive
-                                    ? "active"
-                                    : isPending
-                                        ? "pending"
-                                        : ""
-                            }
-                        >
-                            <ChatsIcon/>
-                        </NavLink>
-
-                    </li>
-
-                    <li className="sub-nav-item">
-
-                        <NavLink
-                            to={`dashboard/reports`}
-                            className={({ isActive, isPending }) =>
-                                isActive
-                                    ? "active"
-                                    : isPending
-                                        ? "pending"
-                                        : ""
-                            }
-                        >
-                            <ReportsIcon/>
-                        </NavLink>
-
-                    </li>
-
-
-                </ul>
-
+                <DashboardNavbar/>
             </div>
 
         </div>
