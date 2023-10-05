@@ -1,39 +1,7 @@
 import React from "react";
 import styled from 'styled-components';
 import { ReactComponent as BotIcon } from '../assets/bot-icon.svg';
-import Colors from "../../../constants/colors";
-
-const NavItems = [
-
-    {
-        title: 'Dashboard',
-        slug: 'main',
-        url: '/dashboard',
-        subItems: []
-    },
-
-    {
-        title: 'Moderators',
-        slug: 'moderators',
-        url: '/moderators',
-        subItems: []
-    },
-
-    {
-        title: 'Database',
-        slug: 'main',
-        url: '/dashboard',
-        subItems: []
-    },
-
-    {
-        title: 'Dashboard',
-        slug: 'main',
-        url: '/dashboard',
-        subItems: []
-    },
-
-];
+import Colors from "../../constants/colors";
 
 const Navbar: React.FC = styled(({ className }: any) => {
     return (

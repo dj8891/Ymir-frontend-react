@@ -4,7 +4,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import ChatInterfacePage from "./page/chat-interface/ChatInterfacePage";
-import MainPage from "./page/main/MainPage";
+import MainPage from "./navigation/MainPage";
 import ErrorPage from "./page/error/ErrorPage";
 
 const router = createBrowserRouter([
