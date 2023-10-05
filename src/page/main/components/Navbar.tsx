@@ -38,27 +38,44 @@ const NavItems = [
 const Navbar: React.FC = styled(({ className }: any) => {
     return (
         <div id="navbar" className={className}>
-            <BotIcon/>
+            <div className="left-nav">
+                <BotIcon/>
 
-            <div className="nav-items">
+                <div className="nav-items">
 
-                <div className="nav-item">
+                    <div className="nav-item">
+
+                    </div>
 
                 </div>
 
             </div>
+
+            <div className="right-nav">
+
+            </div>
+
         </div>
     )
 })`
   height: 100%;
-  width: 3rem;
-  background-color: ${Colors.navbarLightGrey}; 
   display: inline-block;
-  float: left;
   
-  .nav-items {
-    
+  .left-nav {
+    height: 100%;
+    width: 3rem;
+    background-color: ${Colors.navbarLightGrey};
+    display: inline-block;
+    float: left;
   }
+  
+  .right-nav {
+    height: 100%;
+    width: 7rem;
+    display: inline-block;
+    background-color: ${Colors.navbarDarkGrey};
+  }
+ 
 `;
 
 export default Navbar;
