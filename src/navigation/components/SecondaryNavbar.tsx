@@ -1,14 +1,11 @@
 import React from "react";
 import styled from 'styled-components';
-import { ReactComponent as ChatsIcon } from '../assets/chats-icon.svg';
-import { ReactComponent as ReportsIcon } from '../assets/reports-icon.svg';
-
 import Colors from "../../constants/colors";
 
 import {
     NavLink,
 } from "react-router-dom";
-
+import secondaryNavItems from "./secondaryNavItems";
 
 interface SecondaryNavbarProps {
     className?: string,
@@ -16,71 +13,7 @@ interface SecondaryNavbarProps {
 }
 
 const SecondaryNavbar: React.FC<SecondaryNavbarProps> = styled(({ activeNavItem, className }: SecondaryNavbarProps) => {
-
-    const navItems = [
-        {
-            slug: 'dashboard',
-            title: 'Dashboard',
-            subRoutes: [
-                {
-                    url: 'dashboard/chats',
-                    title: 'Chats',
-                    icon: <ChatsIcon/>,
-                },
-                {
-                    url: 'dashboard/reports',
-                    title: 'Reports',
-                    icon: <ReportsIcon/>,
-                },
-            ]
-        },
-        {
-            slug: 'moderators',
-            title: 'Moderators',
-            subRoutes: [
-                {
-                    url: 'moderators/members',
-                    title: 'Members',
-                    icon: <ChatsIcon/>,
-                },
-                {
-                    url: 'moderators/manage-moderator',
-                    title: 'Manage Moderator',
-                    icon: <ReportsIcon/>,
-                },
-            ]
-        },
-        {
-            slug: 'database',
-            title: 'Database',
-            subRoutes: [
-                {
-                    url: 'database/database',
-                    title: 'Database',
-                    icon: <ChatsIcon/>,
-                },
-                {
-                    url: 'database/upload',
-                    title: 'Upload',
-                    icon: <ReportsIcon/>,
-                },
-            ]
-        },
-        {
-            slug: 'settings',
-            title: 'Settings',
-            subRoutes: [
-                {
-                    url: 'settings/help-center',
-                    title: 'Help Center',
-                    icon: <ChatsIcon/>,
-
-                },
-            ]
-        },
-    ];
-
-    const currentNavItem = navItems.find(navItem => navItem.slug === activeNavItem);
+    const currentNavItem = secondaryNavItems.find(navItem => navItem.slug === activeNavItem);
 
     return (
         <div id="sub-nav" className={className}>
@@ -132,11 +65,17 @@ const SecondaryNavbar: React.FC<SecondaryNavbarProps> = styled(({ activeNavItem,
           
           svg {
             vertical-align: middle;
+            display: inline-block;
+            height: 1rem;
+            width: 1rem;
           }
           
           span {
             padding-left: 0.5rem;
             vertical-align: middle;
+            display: inline-block;
+            width: 75%;
+            font-size: 0.75rem;
           }
           
           &.active {
@@ -145,9 +84,7 @@ const SecondaryNavbar: React.FC<SecondaryNavbarProps> = styled(({ activeNavItem,
           }
         }
       }
-      
     }
-  
 `;
 
 export default SecondaryNavbar;

@@ -5,8 +5,14 @@ import {
 } from "react-router-dom";
 import ChatInterfacePage from "./page/chat-interface/ChatInterfacePage";
 import MainPage from "./navigation/MainPage";
-import BasePage from "./navigation/BasePage";
 import ErrorPage from "./page/error/ErrorPage";
+import ChatsPage from "./page/chats/ChatsPage";
+import ReportsPage from "./page/reports/ReportsPage";
+import MembersPage from "./page/members/MembersPage";
+import ManageModeratorPage from "./page/manage-moderator/ManageModeratorPage";
+import DatabasePage from "./page/database/DatabasePage";
+import UploadPage from "./page/upload/UploadPage";
+import HelpCenterPage from "./page/help-center/HelpCenterPage";
 
 const router = createBrowserRouter([
   {
@@ -16,31 +22,31 @@ const router = createBrowserRouter([
     children: [
       {
         path: "dashboard/chats",
-        element: <BasePage title="Chats"/>,
+        element: <ChatsPage/>
       },
       {
         path: "dashboard/reports",
-        element: <BasePage title="Reports"/>,
+        element: <ReportsPage/>,
       },
       {
         path: "moderators/members",
-        element: <BasePage title="Members"/>,
+        element: <MembersPage/>,
       },
       {
         path: "moderators/manage-moderator",
-        element: <BasePage title="Manage Moderator"/>,
+        element: <ManageModeratorPage/>,
       },
       {
         path: "database/database",
-        element: <BasePage title="Database"/>,
+        element: <DatabasePage/>,
       },
       {
         path: "database/upload",
-        element: <BasePage title="Upload"/>,
+        element: <UploadPage/>,
       },
       {
         path: "settings/help-center",
-        element: <BasePage title="Help Center"/>,
+        element: <HelpCenterPage/>,
       },
     ],
   },

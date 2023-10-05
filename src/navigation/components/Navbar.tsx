@@ -1,33 +1,25 @@
 import React from "react";
 import styled from 'styled-components';
 import { ReactComponent as BotIcon } from '../assets/bot-icon.svg';
-import { ReactComponent as DashboardIcon } from '../assets/dashboard-icon.svg';
-import { ReactComponent as DocumentUploadIcon } from '../assets/document-upload-icon.svg';
-import { ReactComponent as SettingsIcon } from '../assets/settings-icon.svg';
-import { ReactComponent as TeammatesIcon } from '../assets/teammates-icon.svg';
+
 import Colors from "../../constants/colors";
 import SecondaryNavbar from "./SecondaryNavbar";
+import primaryNavItems from "./primaryNavItems";
 
 const Navbar: React.FC = styled(({ className }: any) => {
     const [activeNavItem, setActiveNavItem] = React.useState('dashboard');
+
     return (
         <div id="navbar" className={className}>
             <div className="left-nav">
                 <BotIcon className="bot-icon"/>
 
                 <ul className="nav-items">
-                    <li className="nav-item" onClick={() => setActiveNavItem('dashboard')}>
-                        <DashboardIcon/>
-                    </li>
-                    <li className="nav-item" onClick={() => setActiveNavItem('moderators')}>
-                        <TeammatesIcon/>
-                    </li>
-                    <li className="nav-item" onClick={() => setActiveNavItem('database')}>
-                        <DocumentUploadIcon/>
-                    </li>
-                    <li className="nav-item" onClick={() => setActiveNavItem('settings')}>
-                        <SettingsIcon/>
-                    </li>
+                    {primaryNavItems.map(navItem => (
+                        <li className={activeNavItem === navItem.slug ? "active" : ""} onClick={() => setActiveNavItem(navItem.slug)}>
+                            {navItem?.icon}
+                        </li>
+                    ))}
                 </ul>
 
             </div>
@@ -45,7 +37,7 @@ const Navbar: React.FC = styled(({ className }: any) => {
   .left-nav {
     height: 100%;
     width: 3rem;
-    background-color: ${Colors.navbarLightGrey};
+    background-color: ${Colors.navbarDarkGrey};
     display: inline-block;
     text-align: center;
     float: left;
@@ -59,13 +51,25 @@ const Navbar: React.FC = styled(({ className }: any) => {
       margin-top: 3.5rem;
       padding: 0;
       
-      .nav-item {
-        margin-bottom: 1rem;
-        
+      li {
+        padding: 0.75rem 0.5rem 0.75rem 0.4rem;
+        border-left: 3px solid ${Colors.transparent};
+
         svg {
-          color: black;
-          fill: black;
+          color: ${Colors.black};
+          fill: ${Colors.black};
         }
+
+        &.active {
+          background-color: ${Colors.navbarLightGrey};
+          border-left: 3px solid ${Colors.activeBlue};
+          
+          svg {
+            color: ${Colors.activeBlue};
+            fill: ${Colors.activeBlue};
+          }
+        }
+       
       }
     }
     
@@ -75,9 +79,8 @@ const Navbar: React.FC = styled(({ className }: any) => {
     height: 100%;
     width: 8rem;
     display: inline-block;
-    background-color: ${Colors.navbarDarkGrey};
+    background-color: ${Colors.navbarLightGrey};
   }
- 
 `;
 
 export default Navbar;
