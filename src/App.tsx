@@ -5,6 +5,7 @@ import {
 } from "react-router-dom";
 import ChatInterfacePage from "./page/chat-interface/ChatInterfacePage";
 import MainPage from "./navigation/MainPage";
+import BasePage from "./navigation/BasePage";
 import ErrorPage from "./page/error/ErrorPage";
 
 const router = createBrowserRouter([
@@ -15,31 +16,31 @@ const router = createBrowserRouter([
     children: [
       {
         path: "dashboard/chats",
-        element: <p>dashboard/chats</p>,
+        element: <BasePage title="Chats"/>,
       },
       {
         path: "dashboard/reports",
-        element: <p>dashboard/reports</p>,
+        element: <BasePage title="Reports"/>,
       },
       {
         path: "moderators/members",
-        element: <p>moderators/members</p>,
+        element: <BasePage title="Members"/>,
       },
       {
         path: "moderators/manage-moderator",
-        element: <p>moderators/manage-moderator</p>,
+        element: <BasePage title="Manage Moderator"/>,
       },
       {
         path: "database/database",
-        element: <p>database/database</p>,
+        element: <BasePage title="Database"/>,
       },
       {
         path: "database/upload",
-        element: <p>database/upload</p>,
+        element: <BasePage title="Upload"/>,
       },
       {
         path: "settings/help-center",
-        element: <p>settings/help-center</p>,
+        element: <BasePage title="Help Center"/>,
       },
     ],
   },
