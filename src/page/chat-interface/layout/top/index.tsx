@@ -4,9 +4,7 @@ import avatar from "../../assets/svg/avatar.svg";
 import badge from "../../assets/svg/badge.svg";
 import "./style.css";
 
-interface TopLayoutProps {}
-
-const TopLayout: React.FC<TopLayoutProps> = ({}) => {
+const TopLayout: React.FC = () => {
   return (
     <Box
       className="top-layout"

@@ -1,0 +1,49 @@
+# You can override the included template(s) by including variable overrides
+# SAST customization: https://docs.gitlab.com/ee/user/application_security/sast/#customizing-the-sast-settings
+# Secret Detection customization: https://docs.gitlab.com/ee/user/application_security/secret_detection/#customizing-settings
+# Dependency Scanning customization: https://docs.gitlab.com/ee/user/application_security/dependency_scanning/#customizing-the-dependency-scanning-settings
+# Container Scanning customization: https://docs.gitlab.com/ee/user/application_security/container_scanning/#customizing-the-container-scanning-settings
+# Note that environment variables can be set in several places
+# See https://docs.gitlab.com/ee/ci/variables/#cicd-variable-precedence
+
+variables:
+  AWS_DEFAULT_REGION: eu-central-1
+
+
+before_script:
+  - apk update && apk add --update python3 py-pip
+  - pip3 install awscli
+
+stages:
+- test
+- build
+- deploy
+sast:
+  stage: test
+include:
+- template: Security/SAST.gitlab-ci.yml
+
+# TODO: Configure Pipeline for automatic deployment to Kubernetes.
+
+build-static-files:
+  stage: build
+  image: node:20.8.0-alpine
+  only:
+    - main 
+  id_tokens:
+    GITLAB_OIDC_TOKEN:
+      aud: https://gitlab.com
+
+  script:
+    - >
+      export $(printf "AWS_ACCESS_KEY_ID=%s AWS_SECRET_ACCESS_KEY=%s AWS_SESSION_TOKEN=%s"
+      $(aws sts assume-role-with-web-identity
+      --role-arn ${AWS_ROLE_ARN}
+      --role-session-name "GitLabRunner-${CI_PROJECT_ID}-${CI_PIPELINE_ID}"
+      --web-identity-token ${GITLAB_OIDC_TOKEN}
+      --duration-seconds 3600
+      --query 'Credentials.[AccessKeyId,SecretAccessKey,SessionToken]'
+      --output text))
+    - yarn install && yarn build
+    - ls -lrt
+    - aws s3 sync build/ s3://ymir-frontend-react.staging.lah-group.net
