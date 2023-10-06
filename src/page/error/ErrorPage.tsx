@@ -2,7 +2,7 @@ import React from "react";
 import { useRouteError } from "react-router-dom";
 import styled from 'styled-components';
 
-const ErrorPage: React.FC = styled(({ className }: any) => {
+const ErrorPage = styled(({ className }: any) => {
     const error: unknown = useRouteError();
     console.error(error);
 

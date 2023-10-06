@@ -7,7 +7,7 @@ interface ChatsPageProps {
     className?: string,
 }
 
-const ChatsPage: React.FC<ChatsPageProps> = styled(({ className }: ChatsPageProps) => {
+const ChatsPage = styled(({ className }: ChatsPageProps) => {
     const { t } = useTranslation();
 
     return (

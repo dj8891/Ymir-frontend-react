@@ -6,7 +6,7 @@ interface MembersPageProps {
     className?: string,
 }
 
-const MembersPage: React.FC<MembersPageProps> = styled(({ className }: MembersPageProps) => {
+const MembersPage = styled(({ className }: MembersPageProps) => {
     return (
         <BasePage title="Members">
             <span>Members content will go here</span>

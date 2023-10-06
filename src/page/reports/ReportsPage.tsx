@@ -6,7 +6,7 @@ interface ReportsPageProps {
     className?: string,
 }
 
-const ReportsPage: React.FC<ReportsPageProps> = styled(({ className }: ReportsPageProps) => {
+const ReportsPage = styled(({ className }: ReportsPageProps) => {
     return (
         <BasePage title="Reports">
             <span>Reports content will go here</span>

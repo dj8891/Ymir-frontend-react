@@ -7,7 +7,7 @@ interface DatabasePageProps {
     className?: string,
 }
 
-const DatabasePage: React.FC<DatabasePageProps> = styled(({ className }: DatabasePageProps) => {
+const DatabasePage = styled(({ className }: DatabasePageProps) => {
     const { t } = useTranslation();
     return (
         <BasePage title={t('navigation.database')}>

@@ -6,7 +6,7 @@ interface ManageModeratorPageProps {
     className?: string,
 }
 
-const ManageModeratorPage: React.FC<ManageModeratorPageProps> = styled(({ className }: ManageModeratorPageProps) => {
+const ManageModeratorPage = styled(({ className }: ManageModeratorPageProps) => {
     return (
         <BasePage title="Manage Moderator">
             <span>Manage Moderator content will go here</span>
