@@ -13,3 +13,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+#ymir-application {
+  height: 100vh;
+}
+
+.ymir-app {
+  width: 100%;
+  height: 100%;
+}
