@@ -30,4 +30,4 @@ ENV NODE_ENV production
 COPY --from=builder /app/build .
 
 EXPOSE 80
-CMD ["serve", "-p", "80", "-s", "."]
+CMD ["yarn", "start"]

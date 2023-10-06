@@ -24,7 +24,7 @@ include:
 
 # TODO: Configure Pipeline for automatic deployment to Kubernetes.
 
-build-docker-image:
+build-static-files:
   stage: build
   image: docker:20.10.17
   services:
@@ -54,42 +54,6 @@ build-docker-image:
       --duration-seconds 3600
       --query 'Credentials.[AccessKeyId,SecretAccessKey,SessionToken]'
       --output text))
-
-    - aws ecr get-login-password | docker login --username AWS --password-stdin $DOCKER_REGISTRY
-    - echo "Building docker image...$DOCKER_REGISTRY/$REPO_NAME:$CI_PIPELINE_IID"
-    - docker build -t $DOCKER_REGISTRY/$REPO_NAME:$CI_PIPELINE_IID .
-    - echo "Pushing the image to the registry $DOCKER_REGISTRY"
-    - docker push $DOCKER_REGISTRY/$REPO_NAME:$CI_PIPELINE_IID
-
-deploy-to-stg:
-  stage: deploy
-  image: dtzar/helm-kubectl
-  only:
-    - main
-  id_tokens:
-    GITLAB_OIDC_TOKEN:
-      aud: https://gitlab.com
-  environment:
-    name: staging 
-    url: ymir-frontend-react.staging.lah-group.net
-  before_script:
-    - apk update && apk add --update python3 py-pip jq
-    - pip3 install awscli --upgrade
-  script:
-    - >
-      export $(printf "AWS_ACCESS_KEY_ID=%s AWS_SECRET_ACCESS_KEY=%s AWS_SESSION_TOKEN=%s"
-      $(aws sts assume-role-with-web-identity
-      --role-arn ${AWS_ROLE_ARN}
-      --role-session-name "GitLabRunner-${CI_PROJECT_ID}-${CI_PIPELINE_ID}"
-      --web-identity-token ${GITLAB_OIDC_TOKEN}
-      --duration-seconds 3600
-      --query 'Credentials.[AccessKeyId,SecretAccessKey,SessionToken]'
-      --output text))
-    - > 
-      aws secretsmanager get-secret-value --secret-id staging/ymir-frontend-react --query SecretString --output text | 
-      jq -r "to_entries|map(\"\(.key)=\\\"\(.value|tostring)\\\"\")|.[]" > helm/secretFile
-    
-    - aws eks update-kubeconfig --name Ymir_Platform_Cluster
-    - kubectl config set-context --current  --namespace staging
-    - helm lint ./helm
-    - envsubst < ./helm/values.yaml | helm upgrade --install ymir-frontend-react ./helm  --values - --create-namespace
+    - yarn install && yarn build
+    - ls -lrt
+    - aws s3 sync build/ s3://ymir-frontend-react.staging.lah-group.net
