@@ -22,8 +22,8 @@ const translations = {
             }
         }
     },
-    lng: "de", // We can manually toggle the language here until we configure a language detector, en for English, de for German
-    //lng: "en",
+    //lng: "de", // We can manually toggle the language here until we configure a language detector, en for English, de for German
+    lng: "en",
     fallbackLng: "en",
 
     interpolation: {
