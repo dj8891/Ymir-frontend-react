@@ -11,7 +11,6 @@ COPY . .
 COPY --from=dependencies /app/node_modules ./node_modules
 RUN yarn build
 
-
 FROM node:20.8.0-alpine as runner
 
 # Create a user to be used by the application

@@ -9,7 +9,11 @@
 variables:
   AWS_DEFAULT_REGION: eu-central-1
 
-image: node:20.8.0-alpine
+
+before_script:
+  - apk update && apk add --update python3 py-pip
+  - pip3 install awscli
+
 stages:
 - test
 - build
@@ -23,14 +27,7 @@ include:
 
 build-static-files:
   stage: build
-  image: docker:20.10.17
-  services:
-    - name: docker:dind
-  variables: 
-    DOCKER_HOST: tcp://docker:2376
-    DOCKER_TLS_CERTDIR: "/certs"
-    DOCKER_TLS_VERIFY: 1
-    DOCKER_CERT_PATH: "$DOCKER_TLS_CERTDIR/client"
+  image: node:20.8.0-alpine
   only:
     - main 
   id_tokens:
