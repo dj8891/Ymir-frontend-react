@@ -52,9 +52,7 @@ const messages: Message[] = [
   },
 ];
 
-interface MainLayoutProps {}
-
-const MainLayout: React.FC<MainLayoutProps> = ({}) => {
+const MainLayout: React.FC = () => {
   return (
     <Box className="main-layout">
       <Grid container>
