@@ -17,6 +17,13 @@ const translations = {
                     settings: "Settings",
                     moderators: "Moderators",
                     dashboard: "Dashboard"
+                },
+                basePage: {
+                    available: 'Available',
+                },
+                errorPage: {
+                    oops: "Oops!",
+                    unexpectedError: "An unexpected error has occurred.",
                 }
             }
         },
@@ -34,12 +41,19 @@ const translations = {
                     settings: "Settings (de)",
                     moderators: "Moderators (de)",
                     dashboard: "Dashboard (de)"
+                },
+                basePage: {
+                    available: 'Available (de)',
+                },
+                errorPage: {
+                    oops: "Oops! (de)",
+                    unexpectedError: "An unexpected error has occurred. (de)",
                 }
             }
         }
     },
-    //lng: "de", // We can manually toggle the language here until we configure a language detector, en for English, de for German
-    lng: "en",
+    lng: "de", // We can manually toggle the language here until we configure a language detector, en for English, de for German
+    //lng: "en",
     fallbackLng: "en",
 
     interpolation: {

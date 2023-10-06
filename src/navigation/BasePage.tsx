@@ -3,19 +3,21 @@ import styled from 'styled-components';
 import Colors from "../constants/colors";
 import { ReactComponent as MenuIcon } from './assets/menu-icon.svg';
 import { ReactComponent as GreenDot } from './assets/green-dot.svg';
+import {useTranslation} from "react-i18next";
 interface BasePageProps {
     className?: string,
     children?: any,
     title: string,
 }
 
-const BasePage: React.FC<BasePageProps> = styled(({ className, children, title }: BasePageProps) => {
+const BasePage = styled(({ className, children, title }: BasePageProps) => {
+    const { t } = useTranslation();
     return (
         <div id="base-page" className={className}>
             <div className="title-area">
                 <MenuIcon/>
                 <h3>{title}</h3>
-                <span><GreenDot/> Available</span>
+                <span><GreenDot/> {t('basePage.available')}</span>
             </div>
             <div className="content-area">
                 {children}
