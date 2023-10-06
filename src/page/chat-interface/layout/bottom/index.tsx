@@ -3,9 +3,8 @@ import React from "react";
 import EmojiButton from "../../components/buttons/emoji";
 import UploadButton from "../../components/buttons/upload";
 import "./style.css";
-interface BottomLayoutProps {}
 
-const BottomLayout: React.FC<BottomLayoutProps> = ({}) => {
+const BottomLayout: React.FC = () => {
   return (
     <Box
       className="bottom-layout"
