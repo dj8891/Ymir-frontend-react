@@ -6,7 +6,7 @@ import Colors from "../../constants/colors";
 import SecondaryNavbar from "./SecondaryNavbar";
 import primaryNavItems from "./primaryNavItems";
 
-const Navbar: React.FC = styled(({ className }: any) => {
+const Navbar = styled(({ className }: any) => {
     const [activeNavItem, setActiveNavItem] = React.useState('dashboard');
 
     return (

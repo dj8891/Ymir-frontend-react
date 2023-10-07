@@ -9,6 +9,7 @@ interface Message {
   avatar: string;
 }
 
+//TODO: This old file will likely need an overhaul, I'm not going to add localization to it for now.
 const messages: Message[] = [
   {
     text: "Hello! I hope you are having a great day. I wanted to talk to you about something important. Do you have some time to chat-interface?",

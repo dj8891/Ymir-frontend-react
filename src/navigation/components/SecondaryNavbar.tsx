@@ -12,8 +12,8 @@ interface SecondaryNavbarProps {
     activeNavItem: string,
 }
 
-const SecondaryNavbar: React.FC<SecondaryNavbarProps> = styled(({ activeNavItem, className }: SecondaryNavbarProps) => {
-    const currentNavItem = secondaryNavItems.find(navItem => navItem.slug === activeNavItem);
+const SecondaryNavbar = styled(({ activeNavItem, className }: SecondaryNavbarProps) => {
+    const currentNavItem = secondaryNavItems().find(navItem => navItem.slug === activeNavItem);
 
     return (
         <div id="sub-nav" className={className}>
