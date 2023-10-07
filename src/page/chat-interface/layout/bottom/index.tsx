@@ -6,23 +6,11 @@ import "./style.css";
 
 const BottomLayout: React.FC = () => {
   return (
-    <Box
-      className="bottom-layout"
-      display="flex"
-      flexDirection="column"
-      alignItems="center"
-      justifyContent="center"
-    >
+    <Box className="bottom-layout" display="flex" flexDirection="column" alignItems="center" justifyContent="center">
       <Grid container>
         <Grid item xs={false} lg={2}></Grid>
         <Grid item xs={10} lg={8}>
-          <Box
-            display="flex"
-            alignItems="center"
-            justifyContent="center"
-            height="100%"
-            marginRight={2}
-          >
+          <Box display="flex" alignItems="center" justifyContent="center" height="100%" marginRight={2}>
             <TextField
               variant="standard"
               fullWidth
@@ -36,12 +24,7 @@ const BottomLayout: React.FC = () => {
           </Box>
         </Grid>
         <Grid item xs={2} lg={2} spacing={2}>
-          <Box
-            display="flex"
-            alignItems="center"
-            justifyContent="center"
-            height="100%"
-          >
+          <Box display="flex" alignItems="center" justifyContent="center" height="100%">
             <ButtonGroup
               variant="outlined"
               color="default"

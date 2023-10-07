@@ -6,29 +6,29 @@ import basePage from "./translation-categories/base-page";
 import errorPage from "./translation-categories/error-page";
 
 const translations = {
-    resources: {
-        en: {
-            translation: {
-                navigation: navigation.en,
-                basePage: basePage.en,
-                errorPage: errorPage.en
-            }
-        },
-        de: {
-            translation: {
-                navigation: navigation.de,
-                basePage: basePage.de,
-                errorPage: errorPage.de
-            }
-        }
+  resources: {
+    en: {
+      translation: {
+        navigation: navigation.en,
+        basePage: basePage.en,
+        errorPage: errorPage.en,
+      },
     },
-    //lng: "de", // We can manually toggle the language here until we configure a language detector, en for English, de for German
-    lng: "en",
-    fallbackLng: "en",
+    de: {
+      translation: {
+        navigation: navigation.de,
+        basePage: basePage.de,
+        errorPage: errorPage.de,
+      },
+    },
+  },
+  //lng: "de", // We can manually toggle the language here until we configure a language detector, en for English, de for German
+  lng: "en",
+  fallbackLng: "en",
 
-    interpolation: {
-        escapeValue: false
-    }
+  interpolation: {
+    escapeValue: false,
+  },
 };
 
 export default translations;

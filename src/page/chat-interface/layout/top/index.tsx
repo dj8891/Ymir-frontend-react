@@ -17,12 +17,7 @@ const TopLayout: React.FC = () => {
     >
       <Grid container spacing={0} justifyContent="center">
         <Grid item xs={12} sm={8} md={6} lg={4}>
-          <Box
-            display="flex"
-            flexDirection="row"
-            alignItems="center"
-            width="100%"
-          >
+          <Box display="flex" flexDirection="row" alignItems="center" width="100%">
             <Box
               display="flex"
               flexDirection="column"

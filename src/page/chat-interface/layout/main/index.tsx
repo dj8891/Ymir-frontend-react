@@ -60,12 +60,7 @@ const MainLayout: React.FC = () => {
         <Grid item xs={false} lg={2}></Grid>
         <Grid item xs={12} lg={8}>
           {messages.map((message, index) => (
-            <ChatBubble
-              key={index}
-              text={message.text}
-              user={message.user}
-              avatar={message.avatar}
-            />
+            <ChatBubble key={index} text={message.text} user={message.user} avatar={message.avatar} />
           ))}
         </Grid>
         <Grid item xs={false} lg={2}></Grid>
