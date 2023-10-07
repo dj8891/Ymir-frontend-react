@@ -1,6 +1,7 @@
 /* Primary Location for Global CSS */
 html {
   background-color: #DCDCDC;
+  overflow: hidden;
 }
 
 body {
