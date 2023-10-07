@@ -8,7 +8,8 @@
 
 variables:
   AWS_DEFAULT_REGION: eu-central-1
-
+  BUCKET_NAME: ymir-frontend-react.staging.lah-group.net
+  DISTRIBUTION_ID: EVQL8W6JT4Z6F
 
 before_script:
   - apk update && apk add --update python3 py-pip
@@ -45,5 +46,6 @@ build-static-files:
       --query 'Credentials.[AccessKeyId,SecretAccessKey,SessionToken]'
       --output text))
     - yarn install && yarn build
-    - ls -lrt
-    - aws s3 sync build/ s3://ymir-frontend-react.staging.lah-group.net
+    - aws s3 rm s3://${BUCKET_NAME} --recursive
+    - aws s3 cp ./dist s3://${BUCKET_NAME} --acl public-read --recursive
+    - aws cloudfront create-invalidation --distribution-id ${DISTRIBUTION_ID} --path "/*"
