@@ -18,6 +18,8 @@ const BasePage = styled(({ className, children, title }: BasePageProps) => {
       <div className="title-area">
         <MenuIcon />
         <h3>{title}</h3>
+        <GreenDot />
+        <span>{t("basePage.available")}</span>
       </div>
       <div className="content-area">{children}</div>
     </div>
@@ -31,11 +33,6 @@ const BasePage = styled(({ className, children, title }: BasePageProps) => {
     vertical-align: top;
     padding: 1.5rem;
 
-    svg {
-      display: inline;
-      vertical-align: middle;
-    }
-
     h3 {
       padding-left: 1rem;
       margin: 0;
@@ -43,12 +40,18 @@ const BasePage = styled(({ className, children, title }: BasePageProps) => {
       vertical-align: middle;
     }
 
-    span {
+    svg {
       padding-left: 1rem;
+      display: inline;
+      vertical-align: middle;
+    }
+
+    span {
       margin: 0;
       display: inline;
       vertical-align: middle;
       font-size: 0.75rem;
+      padding-left: 0.5rem;
     }
   }
 

@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
+import Colors from "../../constants/colors";
 
 interface RegistrationPageProps {
   className?: string;
@@ -15,7 +16,7 @@ const RegistrationPage = styled(({ className }: RegistrationPageProps) => {
     </div>
   );
 })`
-  padding-top: 10%;
+  height: 100%;
 
   p {
     text-align: center;
