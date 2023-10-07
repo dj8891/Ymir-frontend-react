@@ -9,18 +9,9 @@ interface ChatBubbleProps {
 }
 
 const ChatBubble: React.FC<ChatBubbleProps> = ({ text, user, avatar }) => (
-  <Box
-    display="flex"
-    flexDirection={user === "userA" ? "row" : "row-reverse"}
-    alignItems="end"
-    mb={2}
-  >
+  <Box display="flex" flexDirection={user === "userA" ? "row" : "row-reverse"} alignItems="end" mb={2}>
     {user === "userA" && (
-      <Avatar
-        src={logo}
-        alt={`${user} avatar`}
-        sx={{ borderRadius: "20%", width: "30px", height: "30px" }}
-      />
+      <Avatar src={logo} alt={`${user} avatar`} sx={{ borderRadius: "20%", width: "30px", height: "30px" }} />
     )}
     <Box
       bgcolor={user === "userA" ? "#DCDCDC" : "#909090"}

@@ -1,33 +1,31 @@
 import React from "react";
-import styled from 'styled-components';
+import styled from "styled-components";
 import Colors from "../constants/colors";
-import { ReactComponent as MenuIcon } from './assets/menu-icon.svg';
-import { ReactComponent as GreenDot } from './assets/green-dot.svg';
-import {useTranslation} from "react-i18next";
+import { ReactComponent as MenuIcon } from "./assets/menu-icon.svg";
+import { ReactComponent as GreenDot } from "./assets/green-dot.svg";
+import { useTranslation } from "react-i18next";
 interface BasePageProps {
-    className?: string,
-    children?: any,
-    title: string,
+  className?: string;
+  children?: any;
+  title: string;
 }
 
 const BasePage = styled(({ className, children, title }: BasePageProps) => {
-    const { t } = useTranslation();
-    return (
-        <div id="base-page" className={className}>
-            <div className="title-area">
-                <MenuIcon/>
-                <h3>{title}</h3>
-                <span><GreenDot/> {t('basePage.available')}</span>
-            </div>
-            <div className="content-area">
-                {children}
-            </div>
-        </div>
-    )
+  const { t } = useTranslation();
+
+  return (
+    <div id="base-page" className={className}>
+      <div className="title-area">
+        <MenuIcon />
+        <h3>{title}</h3>
+      </div>
+      <div className="content-area">{children}</div>
+    </div>
+  );
 })`
   height: 100%;
   width: 100%;
-  
+
   .title-area {
     border-bottom: 1px solid ${Colors.navbarDarkGrey};
     vertical-align: top;
@@ -43,8 +41,6 @@ const BasePage = styled(({ className, children, title }: BasePageProps) => {
       margin: 0;
       display: inline;
       vertical-align: middle;
-
-
     }
 
     span {
@@ -55,11 +51,10 @@ const BasePage = styled(({ className, children, title }: BasePageProps) => {
       font-size: 0.75rem;
     }
   }
-  
+
   .content-area {
     padding: 2rem;
   }
-  
 `;
 
 export default BasePage;

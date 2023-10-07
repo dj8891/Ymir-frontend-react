@@ -1,8 +1,5 @@
 import React from "react";
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ChatInterfacePage from "./page/chat-interface/ChatInterfacePage";
 import MainPage from "./navigation/MainPage";
 import ErrorPage from "./page/error/ErrorPage";
@@ -23,51 +20,51 @@ i18n.use(initReactI18next).init(translations);
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <MainPage/>,
-    errorElement: <ErrorPage/>,
+    element: <MainPage />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "dashboard/chats",
-        element: <ChatsPage/>
+        element: <ChatsPage />,
       },
       {
         path: "dashboard/reports",
-        element: <ReportsPage/>,
+        element: <ReportsPage />,
       },
       {
         path: "moderators/members",
-        element: <MembersPage/>,
+        element: <MembersPage />,
       },
       {
         path: "moderators/manage-moderator",
-        element: <ManageModeratorPage/>,
+        element: <ManageModeratorPage />,
       },
       {
         path: "database/database",
-        element: <DatabasePage/>,
+        element: <DatabasePage />,
       },
       {
         path: "database/upload",
-        element: <UploadPage/>,
+        element: <UploadPage />,
       },
       {
         path: "settings/help-center",
-        element: <HelpCenterPage/>,
+        element: <HelpCenterPage />,
       },
     ],
   },
   {
     path: "/chat-interface",
-    element: <ChatInterfacePage/>,
+    element: <ChatInterfacePage />,
   },
 ]);
 
 const App: React.FC = () => {
   return (
-      <div className="ymir-app">
-        <RouterProvider router={router}/>
-      </div>
-  )
+    <div className="ymir-app">
+      <RouterProvider router={router} />
+    </div>
+  );
 };
 
 export default App;

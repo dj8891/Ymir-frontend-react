@@ -1,23 +1,23 @@
 import React from "react";
-import styled from 'styled-components';
+import styled from "styled-components";
 import Navbar from "./components/Navbar";
 import { Outlet } from "react-router-dom";
 import Colors from "../constants/colors";
 
 const MainPage: React.FC = styled(({ className }: any) => {
-    return (
-        <div id="main-page" className={className}>
-            <Navbar/>
-            <div className="main-content">
-                <Outlet />
-            </div>
-        </div>
-    )
+  return (
+    <div id="main-page" className={className}>
+      <Navbar />
+      <div className="main-content">
+        <Outlet />
+      </div>
+    </div>
+  );
 })`
   height: 100%;
   width: 100%;
   vertical-align: top;
-  
+
   .main-content {
     width: calc(100% - 11rem);
     height: 100%;
