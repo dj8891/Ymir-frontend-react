@@ -12,6 +12,7 @@ import React from "react";
 import LoginPage from "./page/login/LoginPage";
 import RegistrationPage from "./page/registraion/RegistrationPage";
 import BaseRegistrationScreen from "./page/registraion/BaseRegistrationScreen";
+import NameScreen from "./page/registraion/registration-flow/NameScreen";
 
 interface SubRoute {
   path: string;
@@ -77,7 +78,7 @@ const Routes = (): Array<Route> => {
       children: [
         {
           path: "1",
-          element: <BaseRegistrationScreen title="Your Information">First Page Content</BaseRegistrationScreen>,
+          element: <NameScreen />,
         },
         {
           path: "2",
