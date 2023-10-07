@@ -5,7 +5,7 @@ import navigation from "./translation-categories/navigation";
 import basePage from "./translation-categories/base-page";
 import errorPage from "./translation-categories/error-page";
 
-const translations = {
+const translations: {} = {
   resources: {
     en: {
       translation: {
