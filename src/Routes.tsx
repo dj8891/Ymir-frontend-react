@@ -11,6 +11,7 @@ import ChatInterfacePage from "./page/chat-interface/ChatInterfacePage";
 import React from "react";
 import LoginPage from "./page/login/LoginPage";
 import RegistrationPage from "./page/registraion/RegistrationPage";
+import BaseRegistrationScreen from "./page/registraion/BaseRegistrationScreen";
 
 interface SubRoute {
   path: string;
@@ -72,6 +73,53 @@ const Routes = (): Array<Route> => {
     {
       path: "/registration",
       element: <RegistrationPage />,
+      errorElement: <ErrorPage />,
+      children: [
+        {
+          path: "1",
+          element: <BaseRegistrationScreen title="Your Information">First Page Content</BaseRegistrationScreen>,
+        },
+        {
+          path: "2",
+          element: <BaseRegistrationScreen title="Your Address">Second Page Content</BaseRegistrationScreen>,
+        },
+        {
+          path: "3",
+          element: <BaseRegistrationScreen title="Company Information">Third Page Content</BaseRegistrationScreen>,
+        },
+        {
+          path: "4",
+          element: <BaseRegistrationScreen title="Plans">Fourth Page Content</BaseRegistrationScreen>,
+        },
+        {
+          path: "5",
+          element: <BaseRegistrationScreen title="Payment">Fifth Page Content</BaseRegistrationScreen>,
+        },
+        {
+          path: "6",
+          element: <BaseRegistrationScreen title="Preparing Dashboard">Sixth Page Content</BaseRegistrationScreen>,
+        },
+        {
+          path: "7",
+          element: <BaseRegistrationScreen title="Describe Company">Seventh Page Content</BaseRegistrationScreen>,
+        },
+        {
+          path: "8",
+          element: <BaseRegistrationScreen title="Upload Data">Eighth Page Content</BaseRegistrationScreen>,
+        },
+        {
+          path: "9",
+          element: <BaseRegistrationScreen title="Customize Bot">Ninth Page Content</BaseRegistrationScreen>,
+        },
+        {
+          path: "10",
+          element: <BaseRegistrationScreen title="Test Bot">Tenth Page Content</BaseRegistrationScreen>,
+        },
+        {
+          path: "10",
+          element: <BaseRegistrationScreen title="Add A Member">Eleventh Page Content</BaseRegistrationScreen>,
+        },
+      ],
     },
   ];
 };
