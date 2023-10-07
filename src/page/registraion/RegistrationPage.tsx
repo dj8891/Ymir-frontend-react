@@ -5,6 +5,7 @@ import Colors from "../../constants/colors";
 import { ReactComponent as TemporaryLogo } from "./assets/temporary-logo.svg";
 import { ReactComponent as ChatAssistanceIcon } from "./assets/chat-assistance-icon.svg";
 import { Outlet } from "react-router-dom";
+import Tooltip from "@mui/material/Tooltip";
 
 interface RegistrationPageProps {
   className?: string;
@@ -22,7 +23,9 @@ const RegistrationPage = styled(({ className }: RegistrationPageProps) => {
           <Outlet />
         </div>
 
-        <ChatAssistanceIcon className="chatbot-icon" />
+        <Tooltip title="Looking for help?" placement="top-end" arrow id="looking-for-help-tooltip">
+          <ChatAssistanceIcon className="chatbot-icon" />
+        </Tooltip>
       </div>
     </div>
   );
