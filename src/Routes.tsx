@@ -9,6 +9,8 @@ import UploadPage from "./page/upload/UploadPage";
 import HelpCenterPage from "./page/help-center/HelpCenterPage";
 import ChatInterfacePage from "./page/chat-interface/ChatInterfacePage";
 import React from "react";
+import LoginPage from "./page/login/LoginPage";
+import RegistrationPage from "./page/registraion/RegistrationPage";
 
 interface SubRoute {
   path: string;
@@ -62,6 +64,14 @@ const Routes = (): Array<Route> => {
     {
       path: "/chat-interface",
       element: <ChatInterfacePage />,
+    },
+    {
+      path: "/login",
+      element: <LoginPage />,
+    },
+    {
+      path: "/registration",
+      element: <RegistrationPage />,
     },
   ];
 };

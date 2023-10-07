@@ -4,7 +4,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import translations from "./localization/translations";
-import Routes from "./routes";
+import Routes from "./Routes";
 
 i18n.use(initReactI18next).init(translations);
 
