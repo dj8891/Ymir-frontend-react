@@ -6,17 +6,19 @@ import Colors from "../../../constants/colors";
 interface RegistrationFlowButtonProps {
   children: React.ReactNode;
   className?: string;
-  type?: string;
+  type?: "button" | "submit" | "reset";
   variant?: "contained" | "outlined";
 }
 
-const RegistrationFlowButton = styled(({ children, className }: RegistrationFlowButtonProps) => {
-  return (
-    <Button className={className}>
-      <span className="button-text">{children}</span>
-    </Button>
-  );
-})`
+const RegistrationFlowButton = styled(
+  ({ children, className, type = "button", variant = "contained" }: RegistrationFlowButtonProps) => {
+    return (
+      <Button className={`registration-flow-button ${className}`} type={type} variant={variant}>
+        <span className="button-text">{children}</span>
+      </Button>
+    );
+  },
+)`
   background-color: ${Colors.activeBlue} !important;
   border-radius: 1.25rem !important;
 

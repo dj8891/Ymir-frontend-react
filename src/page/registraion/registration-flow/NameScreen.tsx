@@ -7,6 +7,7 @@ import { useForm, Controller } from "react-hook-form";
 import TextField from "@mui/material/TextField";
 
 import RegistrationFlowButton from "../components/RegistrationFlowButton";
+import { useNavigate } from "react-router-dom";
 
 interface NameScreenProps {
   className?: string;
@@ -14,6 +15,7 @@ interface NameScreenProps {
 
 const NameScreen = styled(({ className }: NameScreenProps) => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
 
   const { control, handleSubmit } = useForm({
     defaultValues: {
@@ -21,14 +23,16 @@ const NameScreen = styled(({ className }: NameScreenProps) => {
     },
   });
 
-  const onSubmit: any = (data: any) => {
-    console.log(data);
+  const onSubmit: any = (nameFormData: any) => {
+    console.log({ nameFormData });
+    console.log("Redirect to next page...");
+    navigate("/registration/2");
   };
 
   return (
     <div className={className}>
       <BaseRegistrationScreen contained title={t("registrationFlow.nameScreen.title")}>
-        <h5>Let's set up your account</h5>
+        <p>Let's set up your account.</p>
         <h4>What's your full name?</h4>
 
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -36,19 +40,27 @@ const NameScreen = styled(({ className }: NameScreenProps) => {
             name="fullName"
             control={control}
             render={({ field }) => {
-              return <TextField label="Full Name" variant="outlined" {...field} />;
+              return <TextField id="full-name" label="Full Name" variant="outlined" {...field} />;
             }}
           />
           <br />
           <br />
 
           <RegistrationFlowButton variant="contained" type="submit">
-            Test
+            Continue
           </RegistrationFlowButton>
         </form>
       </BaseRegistrationScreen>
     </div>
   );
-})``;
+})`
+  form div {
+    width: 100%;
+  }
+
+  .registration-flow-button {
+    float: right;
+  }
+`;
 
 export default NameScreen;
