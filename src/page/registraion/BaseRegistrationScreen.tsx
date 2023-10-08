@@ -4,12 +4,13 @@ import { ReactComponent as BackArrow } from "./assets/back-arrow.svg";
 import { useLocation, Location, useNavigate } from "react-router-dom";
 
 interface BaseRegistrationScreenProps {
-  className?: string;
   children?: React.ReactNode;
+  className?: string;
+  contained?: boolean;
   title: string;
 }
 
-const BaseRegistrationScreen = styled(({ className, children, title }: BaseRegistrationScreenProps) => {
+const BaseRegistrationScreen = styled(({ children, className, title }: BaseRegistrationScreenProps) => {
   const location: Location = useLocation();
   const currentPageNumber: number = Number(location.pathname.split("/").pop());
   const navigate = useNavigate();
@@ -51,6 +52,8 @@ const BaseRegistrationScreen = styled(({ className, children, title }: BaseRegis
 
   .child-content {
     padding-top: 1rem;
+    max-width: ${(props) => (props.contained ? "40rem" : "100%")};
+    margin: 0 auto;
   }
 `;
 

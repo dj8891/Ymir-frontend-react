@@ -3,9 +3,11 @@ import styled from "styled-components";
 import BaseRegistrationScreen from "../BaseRegistrationScreen";
 import { useTranslation } from "react-i18next";
 
-import Select from "react-select";
 import { useForm, Controller } from "react-hook-form";
-import Input from "@material-ui/core/Input";
+import TextField from "@mui/material/TextField";
+
+import RegistrationFlowButton from "../components/RegistrationFlowButton";
+
 interface NameScreenProps {
   className?: string;
 }
@@ -15,9 +17,7 @@ const NameScreen = styled(({ className }: NameScreenProps) => {
 
   const { control, handleSubmit } = useForm({
     defaultValues: {
-      firstName: "",
-      lastName: "",
-      iceCreamType: {},
+      fullName: "",
     },
   });
 
@@ -27,24 +27,24 @@ const NameScreen = styled(({ className }: NameScreenProps) => {
 
   return (
     <div className={className}>
-      <BaseRegistrationScreen title={t("registrationFlow.nameScreen.title")}>
+      <BaseRegistrationScreen contained title={t("registrationFlow.nameScreen.title")}>
+        <h5>Let's set up your account</h5>
+        <h4>What's your full name?</h4>
+
         <form onSubmit={handleSubmit(onSubmit)}>
-          <Controller name="firstName" control={control} render={({ field }) => <Input {...field} />} />
           <Controller
-            name="iceCreamType"
+            name="fullName"
             control={control}
-            render={({ field }) => (
-              <Select
-                {...field}
-                options={[
-                  { value: "chocolate", label: "Chocolate" },
-                  { value: "strawberry", label: "Strawberry" },
-                  { value: "vanilla", label: "Vanilla" },
-                ]}
-              />
-            )}
+            render={({ field }) => {
+              return <TextField label="Full Name" variant="outlined" {...field} />;
+            }}
           />
-          <input type="submit" />
+          <br />
+          <br />
+
+          <RegistrationFlowButton variant="contained" type="submit">
+            Test
+          </RegistrationFlowButton>
         </form>
       </BaseRegistrationScreen>
     </div>

@@ -82,11 +82,19 @@ const Routes = (): Array<Route> => {
         },
         {
           path: "2",
-          element: <BaseRegistrationScreen title="Your Address">Second Page Content</BaseRegistrationScreen>,
+          element: (
+            <BaseRegistrationScreen contained title="Your Address">
+              Second Page Content
+            </BaseRegistrationScreen>
+          ),
         },
         {
           path: "3",
-          element: <BaseRegistrationScreen title="Company Information">Third Page Content</BaseRegistrationScreen>,
+          element: (
+            <BaseRegistrationScreen contained title="Company Information">
+              Third Page Content
+            </BaseRegistrationScreen>
+          ),
         },
         {
           path: "4",
