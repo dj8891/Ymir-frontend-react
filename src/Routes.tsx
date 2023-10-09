@@ -14,6 +14,7 @@ import RegistrationPage from "./page/registraion/RegistrationPage";
 import BaseRegistrationScreen from "./page/registraion/BaseRegistrationScreen";
 import NameScreen from "./page/registraion/registration-flow/NameScreen";
 import AddressScreen from "./page/registraion/registration-flow/AddressScreen";
+import CompanyInformationScreen from "./page/registraion/registration-flow/CompanyInformationScreen";
 
 interface SubRoute {
   path: string;
@@ -87,11 +88,7 @@ const Routes = (): Array<Route> => {
         },
         {
           path: "3",
-          element: (
-            <BaseRegistrationScreen contained title="Company Information">
-              Third Page Content
-            </BaseRegistrationScreen>
-          ),
+          element: <CompanyInformationScreen />,
         },
         {
           path: "4",

@@ -10,43 +10,43 @@ import RegistrationFlowButton from "../components/RegistrationFlowButton";
 import { useNavigate } from "react-router-dom";
 import { MuiTelInput } from "mui-tel-input";
 
-interface AddressScreenProps {
+interface CompanyInformationScreenProps {
   className?: string;
 }
 
-const AddressScreen = styled(({ className }: AddressScreenProps) => {
+const CompanyInformationScreen = styled(({ className }: CompanyInformationScreenProps) => {
   const { t } = useTranslation();
   const navigate = useNavigate();
 
   const { control, handleSubmit } = useForm({
     defaultValues: {
-      address: "",
-      country: "",
-      phone: "",
+      companyName: "",
+      industry: "",
+      billing: "",
     },
   });
 
-  const onSubmit: any = (addressFormData: any) => {
-    console.log({ addressFormData });
+  const onSubmit: any = (companyInformationFormData: any) => {
+    console.log({ companyInformationFormData });
     console.log("Redirect to next page...");
-    navigate("/registration/3");
+    navigate("/registration/4");
   };
 
   return (
     <div className={className}>
-      <BaseRegistrationScreen contained title={t("registrationFlow.addressScreen.title")}>
-        <p>{t("registrationFlow.addressScreen.moreAboutYou")}</p>
-        <h4>{t("registrationFlow.addressScreen.addressCountryPhone")}</h4>
+      <BaseRegistrationScreen contained title={t("registrationFlow.companyInformationScreen.title")}>
+        <p>{t("registrationFlow.companyInformationScreen.technicalQuestions")}</p>
+        <h4>{t("registrationFlow.companyInformationScreen.companyInfo")}</h4>
 
         <form onSubmit={handleSubmit(onSubmit)}>
           <Controller
-            name="address"
+            name="companyName"
             control={control}
             render={({ field }) => {
               return (
                 <TextField
-                  id="address"
-                  label={t("registrationFlow.addressScreen.addressLabel")}
+                  id="company-name"
+                  label={t("registrationFlow.companyInformationScreen.companyNameLabel")}
                   variant="outlined"
                   {...field}
                 />
@@ -57,13 +57,13 @@ const AddressScreen = styled(({ className }: AddressScreenProps) => {
           <br />
 
           <Controller
-            name="country"
+            name="industry"
             control={control}
             render={({ field }) => {
               return (
                 <TextField
-                  id="country"
-                  label={t("registrationFlow.addressScreen.countryLabel")}
+                  id="industry"
+                  label={t("registrationFlow.companyInformationScreen.industryLabel")}
                   variant="outlined"
                   {...field}
                 />
@@ -75,14 +75,14 @@ const AddressScreen = styled(({ className }: AddressScreenProps) => {
 
           <Controller
             control={control}
-            name="phone"
+            name="billing"
             render={({ field }) => {
               return (
-                <MuiTelInput
-                  defaultCountry="DE"
-                  label={t("registrationFlow.addressScreen.phoneLabel")}
-                  value={field.value}
-                  onChange={field.onChange}
+                <TextField
+                  id="billing"
+                  label={t("registrationFlow.companyInformationScreen.billingLabel")}
+                  variant="outlined"
+                  {...field}
                 />
               );
             }}
@@ -91,7 +91,7 @@ const AddressScreen = styled(({ className }: AddressScreenProps) => {
           <br />
 
           <RegistrationFlowButton variant="contained" type="submit">
-            {t("registrationFlow.addressScreen.continue")}
+            {t("registrationFlow.companyInformationScreen.continue")}
           </RegistrationFlowButton>
         </form>
       </BaseRegistrationScreen>
@@ -107,4 +107,4 @@ const AddressScreen = styled(({ className }: AddressScreenProps) => {
   }
 `;
 
-export default AddressScreen;
+export default CompanyInformationScreen;

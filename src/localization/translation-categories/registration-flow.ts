@@ -16,9 +16,25 @@ const registrationFlow = {
       phoneLabel: "Phone Number",
       continue: "Continue",
     },
+
+    companyInformationScreen: {
+      title: "Company Information",
+      technicalQuestions: "A couple technical questions and we will be ready.",
+      companyInfo: "Name, Industry, and Billing Address of the company?",
+      companyNameLabel: "Name of the company",
+      industryLabel: "Industry of the company",
+      billingLabel: "Billing Address",
+      continue: "Continue",
+    },
   },
   de: {
     nameScreen: {
+      title: "TODO: Translate This",
+    },
+    addressScreen: {
+      title: "TODO: Translate This",
+    },
+    companyInformationScreen: {
       title: "TODO: Translate This",
     },
   },
