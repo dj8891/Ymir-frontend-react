@@ -77,6 +77,7 @@ const AddressScreen = styled(({ className }: AddressScreenProps) => {
             control={control}
             name="phone"
             render={({ field }) => {
+              console.log("phone value: ", field.value);
               console.log({ field });
               return (
                 <MuiTelInput
@@ -99,7 +100,7 @@ const AddressScreen = styled(({ className }: AddressScreenProps) => {
     </div>
   );
 })`
-  form div {
+  form > div {
     width: 100%;
   }
 
