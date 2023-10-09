@@ -4,14 +4,16 @@
 import navigation from "./translation-categories/navigation";
 import basePage from "./translation-categories/base-page";
 import errorPage from "./translation-categories/error-page";
+import registrationFlow from "./translation-categories/registration-flow";
 
-const translations = {
+const translations: {} = {
   resources: {
     en: {
       translation: {
         navigation: navigation.en,
         basePage: basePage.en,
         errorPage: errorPage.en,
+        registrationFlow: registrationFlow.en,
       },
     },
     de: {
@@ -19,6 +21,7 @@ const translations = {
         navigation: navigation.de,
         basePage: basePage.de,
         errorPage: errorPage.de,
+        registrationFlow: registrationFlow.de,
       },
     },
   },

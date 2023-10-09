@@ -3,7 +3,11 @@ import { useRouteError } from "react-router-dom";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
 
-const ErrorPage = styled(({ className }: any) => {
+interface ErrorPageProps {
+  className?: string;
+}
+
+const ErrorPage = styled(({ className }: ErrorPageProps) => {
   const error: unknown = useRouteError();
   const { t } = useTranslation();
   console.error(error);
