@@ -13,6 +13,7 @@ import LoginPage from "./page/login/LoginPage";
 import RegistrationPage from "./page/registraion/RegistrationPage";
 import BaseRegistrationScreen from "./page/registraion/BaseRegistrationScreen";
 import NameScreen from "./page/registraion/registration-flow/NameScreen";
+import AddressScreen from "./page/registraion/registration-flow/AddressScreen";
 
 interface SubRoute {
   path: string;
@@ -82,11 +83,7 @@ const Routes = (): Array<Route> => {
         },
         {
           path: "2",
-          element: (
-            <BaseRegistrationScreen contained title="Your Address">
-              Second Page Content
-            </BaseRegistrationScreen>
-          ),
+          element: <AddressScreen />,
         },
         {
           path: "3",

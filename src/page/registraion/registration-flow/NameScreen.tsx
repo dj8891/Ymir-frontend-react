@@ -32,22 +32,29 @@ const NameScreen = styled(({ className }: NameScreenProps) => {
   return (
     <div className={className}>
       <BaseRegistrationScreen contained title={t("registrationFlow.nameScreen.title")}>
-        <p>Let's set up your account.</p>
-        <h4>What's your full name?</h4>
+        <p>{t("registrationFlow.nameScreen.setUp")}</p>
+        <h4>{t("registrationFlow.nameScreen.whatIsYourName")}</h4>
 
         <form onSubmit={handleSubmit(onSubmit)}>
           <Controller
             name="fullName"
             control={control}
             render={({ field }) => {
-              return <TextField id="full-name" label="Full Name" variant="outlined" {...field} />;
+              return (
+                <TextField
+                  id="full-name"
+                  label={t("registrationFlow.nameScreen.label")}
+                  variant="outlined"
+                  {...field}
+                />
+              );
             }}
           />
           <br />
           <br />
 
           <RegistrationFlowButton variant="contained" type="submit">
-            Continue
+            {t("registrationFlow.nameScreen.continue")}
           </RegistrationFlowButton>
         </form>
       </BaseRegistrationScreen>
