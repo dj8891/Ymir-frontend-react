@@ -10,11 +10,12 @@ import HelpCenterPage from "./page/help-center/HelpCenterPage";
 import ChatInterfacePage from "./page/chat-interface/ChatInterfacePage";
 import React from "react";
 import LoginPage from "./page/login/LoginPage";
-import RegistrationPage from "./page/registraion/RegistrationPage";
-import BaseRegistrationScreen from "./page/registraion/BaseRegistrationScreen";
-import NameScreen from "./page/registraion/registration-flow/NameScreen";
-import AddressScreen from "./page/registraion/registration-flow/AddressScreen";
-import CompanyInformationScreen from "./page/registraion/registration-flow/CompanyInformationScreen";
+import RegistrationPage from "./page/registration/RegistrationPage";
+import BaseRegistrationScreen from "./page/registration/BaseRegistrationScreen";
+import NameScreen from "./page/registration/registration-flow/NameScreen";
+import AddressScreen from "./page/registration/registration-flow/AddressScreen";
+import CompanyInformationScreen from "./page/registration/registration-flow/CompanyInformationScreen";
+import PlanSelectionScreen from "./page/registration/registration-flow/PlanSelectionScreen";
 
 interface SubRoute {
   path: string;
@@ -92,7 +93,7 @@ const Routes = (): Array<Route> => {
         },
         {
           path: "4",
-          element: <BaseRegistrationScreen title="Plans">Fourth Page Content</BaseRegistrationScreen>,
+          element: <PlanSelectionScreen />,
         },
         {
           path: "5",

@@ -26,6 +26,12 @@ const registrationFlow = {
       billingLabel: "Billing Address",
       continue: "Continue",
     },
+
+    planSelectionScreen: {
+      title: "Plans",
+      lookAndCompare: "Take your time to look, compare and choose.",
+      whichPlan: "Which plan are we going for?",
+    },
   },
   de: {
     nameScreen: {
