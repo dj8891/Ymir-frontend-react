@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import PlanInterface from "../shared-interfaces/plan-interface";
 import Plan from "../components/Plan";
+import RegistrationFlowButton from "../components/RegistrationFlowButton";
 
 interface PlanSelectionScreenProps {
   className?: string;
@@ -39,8 +40,8 @@ const PlanSelectionScreen = styled(({ className }: PlanSelectionScreenProps) => 
   const navigate = useNavigate();
   const [activePlan, setActivePlan] = React.useState("tier-2");
 
-  const onSubmit: any = (planSelectionData: any) => {
-    console.log({ planSelectionData });
+  const onSubmit: any = (activePlan: any) => {
+    console.log({ activePlan });
     navigate("/registration/4");
   };
 
@@ -53,7 +54,6 @@ const PlanSelectionScreen = styled(({ className }: PlanSelectionScreenProps) => 
         <h2>{t("registrationFlow.planSelectionScreen.whichPlan")}</h2>
 
         <br />
-        <br />
 
         <div className="plan-area">
           {plans.map((plan: PlanInterface) => (
@@ -61,18 +61,34 @@ const PlanSelectionScreen = styled(({ className }: PlanSelectionScreenProps) => 
               isSelected={plan.slug === activePlan}
               plan={plan}
               key={plan.slug}
-              selectPlan={() => setActivePlan(plan.slug)}
+              selectPlan={() => {
+                setActivePlan(plan.slug);
+              }}
             />
           ))}
         </div>
+
+        <br />
+
+        <RegistrationFlowButton variant="contained" onClick={onSubmit}>
+          {t("registrationFlow.planSelectionScreen.continue")}
+        </RegistrationFlowButton>
       </BaseRegistrationScreen>
     </div>
   );
 })`
   p,
-  h2,
-  .plan-area {
+  h2 {
     text-align: center;
+  }
+
+  .plan-area {
+    height: 22rem;
+    text-align: center;
+  }
+
+  #base-registration-screen .child-content > .registration-flow-button {
+    margin-left: 5rem;
   }
 `;
 

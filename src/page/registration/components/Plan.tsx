@@ -27,19 +27,32 @@ const Plan = styled(({ className, isSelected, plan, selectPlan }: PlanProps) => 
       </ul>
 
       <br />
-      <br />
 
-      <RegistrationFlowButton variant="contained" onClick={() => selectPlan()}>
+      <RegistrationFlowButton
+        variant={isSelected ? "contained" : "outlined"}
+        textColor={isSelected ? Colors.backgroundWhite : Colors.activeBlue}
+        onClick={() => selectPlan()}
+      >
         {plan.buttonText}
       </RegistrationFlowButton>
     </div>
   );
 })`
   display: inline-block;
+  width: 26%;
+  margin-left: 1%;
+  margin-right: 1%;
   background-color: ${Colors.backgroundGrey};
   border-radius: 1rem;
-  margin: 1rem;
-  padding: ${(props) => (props.isSelected ? "3rem 3rem 4rem 3rem" : "1rem 1rem 2rem 1rem")};
+  height: ${(props) => (props.isSelected ? "20rem" : "19rem")};
+  padding-top: ${(props) => (props.isSelected ? "1rem" : "0")};
+  margin-top: ${(props) => (props.isSelected ? "0" : "1rem")};
+  transform: scale(1);
+  transition: 0.5s all ease;
+
+  .registration-flow-button {
+    margin-left: 0.5rem;
+  }
 
   h2 {
     text-align: center;
@@ -55,7 +68,7 @@ const Plan = styled(({ className, isSelected, plan, selectPlan }: PlanProps) => 
   ul {
     list-style-type: none;
     text-align: left;
-    padding-left: 1rem;
+    padding-left: 2rem;
 
     li {
       font-weight: bold;

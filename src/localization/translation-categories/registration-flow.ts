@@ -25,6 +25,7 @@ const registrationFlow = {
       title: "Plans",
       lookAndCompare: "Take your time to look, compare and choose.",
       whichPlan: "Which plan are we going for?",
+      continue: "Continue",
     },
   },
   de: {
@@ -40,4 +41,5 @@ const registrationFlow = {
   },
 };
 
+// @ts-ignore
 export default registrationFlow;
