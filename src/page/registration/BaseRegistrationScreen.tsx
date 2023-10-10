@@ -54,6 +54,13 @@ const BaseRegistrationScreen = styled(({ children, className, title }: BaseRegis
     padding-top: 1rem;
     max-width: ${(props) => (props.contained ? "40rem" : "100%")};
     margin: 0 auto;
+
+    div,
+    input,
+    fieldset,
+    span {
+      font-family: "Albert Sans", sans-serif;
+    }
   }
 `;
 

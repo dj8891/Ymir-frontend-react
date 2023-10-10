@@ -10,10 +10,11 @@ import HelpCenterPage from "./page/help-center/HelpCenterPage";
 import ChatInterfacePage from "./page/chat-interface/ChatInterfacePage";
 import React from "react";
 import LoginPage from "./page/login/LoginPage";
-import RegistrationPage from "./page/registraion/RegistrationPage";
-import BaseRegistrationScreen from "./page/registraion/BaseRegistrationScreen";
-import NameScreen from "./page/registraion/registration-flow/NameScreen";
-import AddressScreen from "./page/registraion/registration-flow/AddressScreen";
+import RegistrationPage from "./page/registration/RegistrationPage";
+import BaseRegistrationScreen from "./page/registration/BaseRegistrationScreen";
+import YourInformationScreen from "./page/registration/registration-flow/YourInformationScreen";
+import CompanyInformationScreen from "./page/registration/registration-flow/CompanyInformationScreen";
+import PlanSelectionScreen from "./page/registration/registration-flow/PlanSelectionScreen";
 
 interface SubRoute {
   path: string;
@@ -79,46 +80,38 @@ const Routes = (): Array<Route> => {
       children: [
         {
           path: "1",
-          element: <NameScreen />,
+          element: <YourInformationScreen />,
         },
         {
           path: "2",
-          element: <AddressScreen />,
+          element: <CompanyInformationScreen />,
         },
         {
           path: "3",
-          element: (
-            <BaseRegistrationScreen contained title="Company Information">
-              Third Page Content
-            </BaseRegistrationScreen>
-          ),
+          element: <PlanSelectionScreen />,
         },
         {
           path: "4",
-          element: <BaseRegistrationScreen title="Plans">Fourth Page Content</BaseRegistrationScreen>,
-        },
-        {
-          path: "5",
           element: <BaseRegistrationScreen title="Payment">Fifth Page Content</BaseRegistrationScreen>,
         },
         {
-          path: "6",
+          path: "5",
           element: <BaseRegistrationScreen title="Preparing Dashboard">Sixth Page Content</BaseRegistrationScreen>,
         },
         {
-          path: "7",
+          path: "6",
           element: <BaseRegistrationScreen title="Describe Company">Seventh Page Content</BaseRegistrationScreen>,
         },
         {
-          path: "8",
+          path: "7",
           element: <BaseRegistrationScreen title="Upload Data">Eighth Page Content</BaseRegistrationScreen>,
         },
         {
-          path: "9",
+          path: "8",
           element: <BaseRegistrationScreen title="Customize Bot">Ninth Page Content</BaseRegistrationScreen>,
         },
         {
-          path: "10",
+          path: "9",
           element: <BaseRegistrationScreen title="Test Bot">Tenth Page Content</BaseRegistrationScreen>,
         },
         {
