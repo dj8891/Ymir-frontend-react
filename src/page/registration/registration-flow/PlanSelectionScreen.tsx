@@ -41,22 +41,28 @@ const PlanSelectionScreen = styled(({ className }: PlanSelectionScreenProps) => 
 
   const onSubmit: any = (planSelectionData: any) => {
     console.log({ planSelectionData });
-    console.log("Redirect to next page...");
-    navigate("/registration/5");
+    navigate("/registration/4");
   };
 
   return (
     <div className={className}>
       <BaseRegistrationScreen title={t("registrationFlow.planSelectionScreen.title")}>
-        <p>{t("registrationFlow.planSelectionScreen.lookAndCompare")}</p>
-        <h4>{t("registrationFlow.planSelectionScreen.whichPlan")}</h4>
+        <p>
+          <strong>{t("registrationFlow.planSelectionScreen.lookAndCompare")}</strong>
+        </p>
+        <h2>{t("registrationFlow.planSelectionScreen.whichPlan")}</h2>
 
         <br />
         <br />
 
         <div className="plan-area">
           {plans.map((plan: PlanInterface) => (
-            <Plan isSelected={true} plan={plan} key={plan.slug} />
+            <Plan
+              isSelected={plan.slug === activePlan}
+              plan={plan}
+              key={plan.slug}
+              selectPlan={() => setActivePlan(plan.slug)}
+            />
           ))}
         </div>
       </BaseRegistrationScreen>
@@ -64,7 +70,7 @@ const PlanSelectionScreen = styled(({ className }: PlanSelectionScreenProps) => 
   );
 })`
   p,
-  h4,
+  h2,
   .plan-area {
     text-align: center;
   }

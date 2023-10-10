@@ -12,8 +12,7 @@ import React from "react";
 import LoginPage from "./page/login/LoginPage";
 import RegistrationPage from "./page/registration/RegistrationPage";
 import BaseRegistrationScreen from "./page/registration/BaseRegistrationScreen";
-import NameScreen from "./page/registration/registration-flow/NameScreen";
-import AddressScreen from "./page/registration/registration-flow/AddressScreen";
+import YourInformationScreen from "./page/registration/registration-flow/YourInformationScreen";
 import CompanyInformationScreen from "./page/registration/registration-flow/CompanyInformationScreen";
 import PlanSelectionScreen from "./page/registration/registration-flow/PlanSelectionScreen";
 
@@ -81,42 +80,38 @@ const Routes = (): Array<Route> => {
       children: [
         {
           path: "1",
-          element: <NameScreen />,
+          element: <YourInformationScreen />,
         },
         {
           path: "2",
-          element: <AddressScreen />,
-        },
-        {
-          path: "3",
           element: <CompanyInformationScreen />,
         },
         {
-          path: "4",
+          path: "3",
           element: <PlanSelectionScreen />,
         },
         {
-          path: "5",
+          path: "4",
           element: <BaseRegistrationScreen title="Payment">Fifth Page Content</BaseRegistrationScreen>,
         },
         {
-          path: "6",
+          path: "5",
           element: <BaseRegistrationScreen title="Preparing Dashboard">Sixth Page Content</BaseRegistrationScreen>,
         },
         {
-          path: "7",
+          path: "6",
           element: <BaseRegistrationScreen title="Describe Company">Seventh Page Content</BaseRegistrationScreen>,
         },
         {
-          path: "8",
+          path: "7",
           element: <BaseRegistrationScreen title="Upload Data">Eighth Page Content</BaseRegistrationScreen>,
         },
         {
-          path: "9",
+          path: "8",
           element: <BaseRegistrationScreen title="Customize Bot">Ninth Page Content</BaseRegistrationScreen>,
         },
         {
-          path: "10",
+          path: "9",
           element: <BaseRegistrationScreen title="Test Bot">Tenth Page Content</BaseRegistrationScreen>,
         },
         {

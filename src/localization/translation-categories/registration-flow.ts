@@ -1,16 +1,10 @@
 const registrationFlow = {
   en: {
-    nameScreen: {
-      title: "Your name",
+    yourInformationScreen: {
+      title: "Your Information",
       setUp: "Let's set up your account.",
-      whatIsYourName: "What's your full name?",
-      label: "Full name",
-      continue: "Continue",
-    },
-    addressScreen: {
-      title: "Your address",
-      moreAboutYou: "A bit more about you.",
-      addressCountryPhone: "What's your address, country, and phone number?",
+      addressCountryPhone: "What’s your full name, address, country and phone number?",
+      nameLabel: "Full name",
       addressLabel: "Address",
       countryLabel: "Country",
       phoneLabel: "Phone Number",
@@ -34,13 +28,13 @@ const registrationFlow = {
     },
   },
   de: {
-    nameScreen: {
-      title: "TODO: Translate This",
-    },
-    addressScreen: {
+    yourInformationScreen: {
       title: "TODO: Translate This",
     },
     companyInformationScreen: {
+      title: "TODO: Translate This",
+    },
+    planSelectionScreen: {
       title: "TODO: Translate This",
     },
   },

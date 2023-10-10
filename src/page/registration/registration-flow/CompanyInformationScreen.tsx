@@ -8,7 +8,6 @@ import TextField from "@mui/material/TextField";
 
 import RegistrationFlowButton from "../components/RegistrationFlowButton";
 import { useNavigate } from "react-router-dom";
-import { MuiTelInput } from "mui-tel-input";
 
 interface CompanyInformationScreenProps {
   className?: string;
@@ -29,14 +28,16 @@ const CompanyInformationScreen = styled(({ className }: CompanyInformationScreen
   const onSubmit: any = (companyInformationFormData: any) => {
     console.log({ companyInformationFormData });
     console.log("Redirect to next page...");
-    navigate("/registration/4");
+    navigate("/registration/3");
   };
 
   return (
     <div className={className}>
       <BaseRegistrationScreen contained title={t("registrationFlow.companyInformationScreen.title")}>
-        <p>{t("registrationFlow.companyInformationScreen.technicalQuestions")}</p>
-        <h4>{t("registrationFlow.companyInformationScreen.companyInfo")}</h4>
+        <p>
+          <strong>{t("registrationFlow.companyInformationScreen.technicalQuestions")}</strong>
+        </p>
+        <h2>{t("registrationFlow.companyInformationScreen.companyInfo")}</h2>
 
         <form onSubmit={handleSubmit(onSubmit)}>
           <Controller

@@ -14,12 +14,13 @@ interface AddressScreenProps {
   className?: string;
 }
 
-const AddressScreen = styled(({ className }: AddressScreenProps) => {
+const YourInformationScreen = styled(({ className }: AddressScreenProps) => {
   const { t } = useTranslation();
   const navigate = useNavigate();
 
   const { control, handleSubmit } = useForm({
     defaultValues: {
+      fullName: "",
       address: "",
       country: "",
       phone: "",
@@ -28,17 +29,36 @@ const AddressScreen = styled(({ className }: AddressScreenProps) => {
 
   const onSubmit: any = (addressFormData: any) => {
     console.log({ addressFormData });
-    console.log("Redirect to next page...");
-    navigate("/registration/3");
+    navigate("/registration/2");
   };
 
   return (
     <div className={className}>
-      <BaseRegistrationScreen contained title={t("registrationFlow.addressScreen.title")}>
-        <p>{t("registrationFlow.addressScreen.moreAboutYou")}</p>
-        <h4>{t("registrationFlow.addressScreen.addressCountryPhone")}</h4>
+      <BaseRegistrationScreen contained title={t("registrationFlow.yourInformationScreen.title")}>
+        <p>
+          <strong>{t("registrationFlow.yourInformationScreen.setUp")}</strong>
+        </p>
+        <h2>{t("registrationFlow.yourInformationScreen.addressCountryPhone")}</h2>
 
         <form onSubmit={handleSubmit(onSubmit)}>
+          <Controller
+            name="fullName"
+            control={control}
+            render={({ field }) => {
+              return (
+                <TextField
+                  id="full-name"
+                  label={t("registrationFlow.yourInformationScreen.nameLabel")}
+                  variant="outlined"
+                  {...field}
+                />
+              );
+            }}
+          />
+
+          <br />
+          <br />
+
           <Controller
             name="address"
             control={control}
@@ -46,13 +66,14 @@ const AddressScreen = styled(({ className }: AddressScreenProps) => {
               return (
                 <TextField
                   id="address"
-                  label={t("registrationFlow.addressScreen.addressLabel")}
+                  label={t("registrationFlow.yourInformationScreen.addressLabel")}
                   variant="outlined"
                   {...field}
                 />
               );
             }}
           />
+
           <br />
           <br />
 
@@ -63,13 +84,14 @@ const AddressScreen = styled(({ className }: AddressScreenProps) => {
               return (
                 <TextField
                   id="country"
-                  label={t("registrationFlow.addressScreen.countryLabel")}
+                  label={t("registrationFlow.yourInformationScreen.countryLabel")}
                   variant="outlined"
                   {...field}
                 />
               );
             }}
           />
+
           <br />
           <br />
 
@@ -80,18 +102,19 @@ const AddressScreen = styled(({ className }: AddressScreenProps) => {
               return (
                 <MuiTelInput
                   defaultCountry="DE"
-                  label={t("registrationFlow.addressScreen.phoneLabel")}
+                  label={t("registrationFlow.yourInformationScreen.phoneLabel")}
                   value={field.value}
                   onChange={field.onChange}
                 />
               );
             }}
           />
+
           <br />
           <br />
 
           <RegistrationFlowButton variant="contained" type="submit">
-            {t("registrationFlow.addressScreen.continue")}
+            {t("registrationFlow.yourInformationScreen.continue")}
           </RegistrationFlowButton>
         </form>
       </BaseRegistrationScreen>
@@ -107,4 +130,4 @@ const AddressScreen = styled(({ className }: AddressScreenProps) => {
   }
 `;
 
-export default AddressScreen;
+export default YourInformationScreen;

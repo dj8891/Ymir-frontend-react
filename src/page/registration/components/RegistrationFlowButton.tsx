@@ -8,6 +8,7 @@ interface RegistrationFlowButtonProps {
   className?: string;
   type?: "button" | "submit" | "reset";
   variant?: "contained" | "outlined";
+  onClick?: () => any;
 }
 
 const RegistrationFlowButton = styled(
